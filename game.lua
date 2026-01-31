@@ -9,5 +9,5 @@ function update()
     ui.palset(2, 0x467A)
     ui.cls(1)
     ui.print("Teste Global Game Jam 2026", 80, 120, 7)
-
+    ui.spr(Sprites.mask01, 20, 20)
 end
