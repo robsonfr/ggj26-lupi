@@ -41,18 +41,9 @@ function update()
             substep = 0
         end
     else
-        if step > 1 then
-            substep = substep + 1
-            if substep >= 10 then
-                step = step - 1
-                substep = 0
-            end
-        --        substep = 0
-        --      step = 1
-        else
             step = 1
             substep = 0
-        end
+
     end
 
 ui.palset(0, 0x0)
