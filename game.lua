@@ -131,7 +131,6 @@ function update()
             Step = 1
             Substep = 0
             Camera(Direcoes[Direcao].op)
-            Direcao = Direcoes[Direcao].op
         end
         
         
