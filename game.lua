@@ -162,7 +162,7 @@ function update()
         a:draw(Mm)
     end
     
-    for i = 1, NumTiros do
+    for i = 1, #Tiros do
         local tt
         
         tt = Tiros[i]
