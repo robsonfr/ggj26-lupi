@@ -8,12 +8,37 @@ require "sprites"
 x = 20
 y = 20
 
+step = 1
+substep = 0
+
 function update()
-    if ui.btn(LEFT) and (x > 0) then
-        x = x - 1
+    local ajuste
+    ajuste = 0
+    if ui.btn(LEFT) and (x > step) then
+        x = x - step
+        ajuste = 1
     end
-    if ui.btn(RIGHT) and (x < 460) then
-        x = x + 1
+    if ui.btn(RIGHT) and (x < 460-step) then
+        x = x + step
+        ajuste = 1
+    end
+
+    if ui.btn(UP) and (y > step) then
+        y = y - step
+        ajuste = 1
+    end
+    if ui.btn(DOWN) and (y < 250-step) then
+        y = y + step
+        ajuste = 1
+    end
+    if ajuste == 1 then
+        substep = substep + 1
+        if substep >= 10 then
+            step = step + 1
+        end
+    else
+        substep = 0
+        step = 1
     end
 
 
