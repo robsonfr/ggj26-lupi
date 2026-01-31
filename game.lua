@@ -194,7 +194,7 @@ function update()
     ui.print("#Tiros=" .. #Tiros, 10, 30, 2)
     ui.print("NumTiros=" .. NumTiros,10,40,2)
     if k <= 10 and k>= 1 and Tiros[k] then
-        ui.print("Tiros[" .. k .. "].direcao=" .. Tiros[k].direcao)
+        ui.print("Tiros[" .. k .. "].direcao=" .. Tiros[k].direcao,10,50,2)
     end
 
     
