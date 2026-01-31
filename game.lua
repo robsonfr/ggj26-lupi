@@ -51,13 +51,13 @@ function update()
 
     if ajuste == 1 then
         if direcao == 1 then
-            mm.move_y(-step)
+            mm:move_y(-step)
         elseif direcao == 2 then
-            mm.move_x(step)
+            mm:move_x(step)
         elseif direcao == 3 then
-            mm.move_y(step)
+            mm:move_y(step)
         elseif direcao == 4 then
-            mm.move_x(-step)
+            mm:move_x(-step)
         end
         substep = substep + 1
         if substep >= 10 then
@@ -119,7 +119,7 @@ function update()
     -- ui.palset(14, 0x4835)
     -- ui.palset(15, 0x7FFF)
     if ui.btnp(BTN_Z) then
-        mm.zero()
+        mm:zero()
     end
     -- if ui.btnp(BTN_Z) and estado < 4 then
     --     estado = estado + 1
@@ -133,7 +133,7 @@ function update()
     ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. direcao], 232, 127)
     for i = 1, 10 do
-        asteroides[i].draw(mm)
+        asteroides[i]:draw(mm)
     end
     -- ui.spr(Sprites["aster0" .. estado], a_x, a_y)
     ui.spr(Sprites["mask01"], 160, 100)
