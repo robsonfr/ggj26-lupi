@@ -16,38 +16,52 @@ step = 1
 substep = 0
 
 estado = 1
+direcao = 1
 
 function update()
     local ajuste
     ajuste = 0
-    if ui.btn(LEFT) and (x > step) then
-        x = x - step
-        ajuste = 1
+    if ui.btn(LEFT) then
+        direcao = 4
     end
-    if ui.btn(RIGHT) and (x < 460-step) then
-        x = x + step
-        ajuste = 1
+    if ui.btn(RIGHT) then
+        direcao = 2
+    end
+    if ui.btn(UP) then
+        direcao = 1
+    end
+    if ui.btn(DOWN) then
+        direcao = 3
     end
 
-    if ui.btn(UP) and (y > step) then
-        y = y - step
-        ajuste = 1
-    end
-    if ui.btn(DOWN) and (y < 250-step) then
-        y = y + step
-        ajuste = 1
-    end
-    if ajuste == 1 then
-        substep = substep + 1
-        if substep >= 10 then
-            step = step + 1
-            substep = 0
-        end
-    else
-            step = 1
-            substep = 0
+    -- if ui.btn(LEFT) and (x > step) then
+    --     x = x - step
+    --     ajuste = 1
+    -- end
+    -- if ui.btn(RIGHT) and (x < 460-step) then
+    --     x = x + step
+    --     ajuste = 1
+    -- end
 
-    end
+    -- if ui.btn(UP) and (y > step) then
+    --     y = y - step
+    --     ajuste = 1
+    -- end
+    -- if ui.btn(DOWN) and (y < 250-step) then
+    --     y = y + step
+    --     ajuste = 1
+    -- end
+    -- if ajuste == 1 then
+    --     substep = substep + 1
+    --     if substep >= 10 then
+    --         step = step + 1
+    --         substep = 0
+    --     end
+    -- else
+    --         step = 1
+    --         substep = 0
+
+    -- end
 
     ui.palset(0, 0x0)
     ui.palset(1, 0xBF8)
