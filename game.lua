@@ -88,7 +88,7 @@ function update()
     end
 
     ui.cls(0)
-    ui.print("Hello World!", 200, 260, 2)
+    ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. direcao], 232, 127)
     ui.spr(Sprites["aster0" .. estado], a_x, a_y)
     ui.spr(Sprites["mask01"], 160, 100)
