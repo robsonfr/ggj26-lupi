@@ -132,6 +132,16 @@ function update()
                 Tiros[k].x = Direcoes[Direcao].posTiro.x
                 Tiros[k].y = Direcoes[Direcao].posTiro.y
                 -- k = NumTiros
+            else
+                k = 1
+                while Tiros[k]:natela() and k <= #Tiros do
+                    k = k + 1
+                end
+                if k <= #Tiros then
+                    Tiros[k].direcao = Direcao
+                    Tiros[k].x = Direcoes[Direcao].posTiro.x
+                    Tiros[k].y = Direcoes[Direcao].posTiro.y
+                end
             end
         end
         -- else
