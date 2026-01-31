@@ -117,7 +117,7 @@ function update()
         NumTiros = 0
     end
 
-    local k
+    local k = 0
     if ui.btn(BTN_Z) then
         if TempoTiro == 0 then
             TempoTiro = Tempo - 20
