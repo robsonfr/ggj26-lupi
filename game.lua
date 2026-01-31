@@ -113,7 +113,7 @@ function update()
         local k
         if NumTiros < 10 then
             NumTiros = NumTiros + 1
-            k = NumTiros            
+            k = NumTiros
         else
             k = 1
             while Tiros[k] == nil and k <= 10 do
