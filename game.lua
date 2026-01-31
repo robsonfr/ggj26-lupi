@@ -3,6 +3,7 @@ require "sprites"
 require "aster"
 require "mundo"
 require "globais"
+require "tiro"
 
 Asteroides = {}
 
@@ -20,7 +21,8 @@ Step = 1
 Substep = 0
 
 Direcao = 1
-
+Tiros = {}
+NumTiros = 0
 
 function Camera(d)
     if d == 1 or d == 5 or d == 8 then
@@ -103,8 +105,18 @@ function update()
         ui.palset(i-1, Palette[i])
     end
 
-    if ui.btnp(BTN_Z) then
+    if ui.btnp(BTN_X) then
         Mm:zero()
+    end
+
+    if ui.btn(BTN_Z) then
+        if NumTiros < 10 then
+            NumTiros = NumTiros + 1
+            Tiros[NumTiros] = Tiro:new()
+            Tiros[NumTiros].direcao = Direcao
+            Tiros[NumTiros].x = Direcoes[Direcao].posTiro.x
+            Tiros[NumTiros].y = Direcoes[Direcao].posTiro.y
+        end
     end
 
     ui.cls(0)
@@ -114,8 +126,6 @@ function update()
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
     for i = 1, #Asteroides do
-        -- ui.print("x=" .. Asteroides[i].x,10,i*12,2)
-        -- ui.print("y=" .. Asteroides[i].y,130,i*12,2)
         local a
         a=Asteroides[i]
         if a:bateu(Mm) then
@@ -125,9 +135,9 @@ function update()
             Camera(Direcoes[Direcao].op)
         end
         
-        
         a:draw(Mm)
     end
-    ui.spr(Sprites["mask01"], 160, 100)
-    ui.spr(Sprites["mask01"], 360, 100)
+
+--    ui.spr(Sprites["mask01"], 160, 100)
+--    ui.spr(Sprites["mask01"], 360, 100)
 end
