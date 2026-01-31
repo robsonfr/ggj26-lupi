@@ -69,7 +69,7 @@ function update()
         estado = estado + 1
     end
 
-    if ui.btnp(BTN_X) and estado > 0 then
+    if ui.btnp(BTN_X) and estado > 1 then
         estado = estado - 1
     end
 
