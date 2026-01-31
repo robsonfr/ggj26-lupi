@@ -11,12 +11,12 @@ Tiro = {
     end,
     updatedraw = function(self, m)
         local l
-        local offset
+        local off_
         local s
-        offset = Direcoes[self.direcao]
+        off_ = Direcoes[self.direcao]
         s = m:paralocal(self.x, self.y)
-        self.x = self.x + offset.x
-        self.y = self.y + offset.y
+        self.x = self.x + off_.x
+        self.y = self.y + off_.y
         l = m:paralocal(self.x, self.y)
         if l.natela then
             ui.line(s.x,s.y,l.x,l.y,2)

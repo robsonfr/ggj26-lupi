@@ -117,8 +117,8 @@ function update()
         NumTiros = 0
     end
 
+    local k
     if ui.btn(BTN_Z) then
-        local k
         if TempoTiro == 0 then
             TempoTiro = Tempo - 20
         end
@@ -164,7 +164,6 @@ function update()
     ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
-
     for i = 1, #Asteroides do
         local a
         a=Asteroides[i]
@@ -177,19 +176,28 @@ function update()
         
         a:draw(Mm)
     end
-
+    
     for i = 1, NumTiros do
         local tt
-
+        
         tt = Tiros[i]
         if tt then
             tt:updatedraw(Mm)
         end
         --if tt and not tt:updatedraw(Mm) then
-            -- Tiros[i] = nil
+        -- Tiros[i] = nil
         --end 
     end
 
+    ui.print("Tempo=" .. Tempo, 10, 10, 2)
+    ui.print("TempoTiro=" .. TempoTiro, 10, 20, 2)
+    ui.print("#Tiros=" .. #Tiros, 10, 30, 2)
+    ui.print("NumTiros=" .. NumTiros,10,40,2)
+    if k <= 10 and k>= 1 and Tiros[k] then
+        ui.print("Tiros[" .. k .. "].direcao=" .. Tiros[k].direcao)
+    end
+
+    
 --    ui.spr(Sprites["mask01"], 160, 100)
 --    ui.spr(Sprites["mask01"], 360, 100)
 end
