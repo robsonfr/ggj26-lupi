@@ -118,8 +118,8 @@ function update()
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
     for i = 1, #Asteroides do
-        if Asteroides[i].x >= -16 and Asteroides[i].x <= 16 and Asteroides[i].y >= -16 and Asteroides[i].y <= 16 then
-            ui.print("Game over", 200, 120, 2)
+        if (Asteroides[i].x >= -16) and (Asteroides[i].x <= 16) and (Asteroides[i].y >= -16) and (Asteroides[i].y <= 16) then
+            ui.print("Game over ".. i, 200, 120, 2)
         end
         Asteroides[i]:draw(Mm)
     end
