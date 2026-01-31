@@ -152,10 +152,12 @@ function update()
         local tt
 
         tt = Tiros[i]
-
-        if tt and not tt:updatedraw(Mm) then
-            Tiros[i] = nil
-        end 
+        if tt then
+            tt:updatedraw(Mm)
+        end
+        --if tt and not tt:updatedraw(Mm) then
+            -- Tiros[i] = nil
+        --end 
     end
 
 --    ui.spr(Sprites["mask01"], 160, 100)
