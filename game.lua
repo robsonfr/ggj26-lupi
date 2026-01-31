@@ -2,18 +2,10 @@ require "palette"
 require "sprites"
 require "aster"
 require "mundo"
+require "globais"
 
 Asteroides = {}
-Direcoes = {
-    { x=0, y=-1, op=3 },
-    { x=1, y=0, op=4 },
-    { x=0, y=1, op=1 },
-    { x=-1, y=0, op=2 },
-    { x=1, y=-1, op=7},
-    { x=1, y=1, op=8},
-    { x=-1,y=1, op=5},
-    { x=-1, y=-1, op=6 }
-}
+
 
 for i = 1, 20 do
     Asteroides[i] = Aster:new()
