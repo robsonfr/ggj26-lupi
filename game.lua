@@ -22,7 +22,11 @@ Substep = 0
 
 Direcao = 1
 Tiros = {}
-NumTiros = 0
+for i=1, 10 do
+    Tiros[i] = Tiro:new()
+    Tiros[i].x = -1000
+    Tiros[i].y = -1000
+end
 
 Tempo = 0
 
@@ -124,38 +128,19 @@ function update()
         end
         if Tempo - TempoTiro >= 15 then
             TempoTiro = Tempo
-            if NumTiros < 10 then
-                NumTiros = NumTiros + 1
-                k = NumTiros
-                Tiros[k] = Tiro:new()
-                Tiros[k].direcao = Direcao
+            k = k + 1
+            while k<= #Tiros do
+                if not Tiros[k]:natela(Mm) then
+                    break
+                end
+                k = k + 1
+            end
+            if k<= #Tiros then
                 Tiros[k].x = Direcoes[Direcao].posTiro.x
                 Tiros[k].y = Direcoes[Direcao].posTiro.y
-                -- k = NumTiros
-            else
-                k = 1
-                while Mm and k and Tiros[k] and Tiros[k]:natela(Mm) and k <= #Tiros do
-                    k = k + 1
-                end
-                if k <= #Tiros then
-                    Tiros[k].direcao = Direcao
-                    Tiros[k].x = Direcoes[Direcao].posTiro.x
-                    Tiros[k].y = Direcoes[Direcao].posTiro.y
-                end
+                Tiros[k].direcao = Direcao                
             end
         end
-        -- else
-        --     k = 1
-        --     while Tiros[k] == nil and k <= 10 do
-        --         k = k + 1
-        --     end
-        --     if k <= 10 then
-        --         Tiros[k] = Tiro:new()
-        --         Tiros[k].direcao = Direcao
-        --         Tiros[k].x = Direcoes[Direcao].posTiro.x
-        --         Tiros[k].y = Direcoes[Direcao].posTiro.y
-        --     end
-        -- end
     end
 
     ui.cls(0)
@@ -181,7 +166,7 @@ function update()
         local tt
         
         tt = Tiros[i]
-        if tt then
+        if tt and tt:natela(Mm) then
             tt:updatedraw(Mm)
         end
         --if tt and not tt:updatedraw(Mm) then
