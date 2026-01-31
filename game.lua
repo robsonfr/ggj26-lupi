@@ -104,7 +104,7 @@ function update()
         Camera(Direcao)
         Substep = Substep + 1
         if Substep >= 10 then
-            Step = Step + 1
+            -- Step = Step + 1
             Substep = 0
         end
     else
