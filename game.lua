@@ -5,14 +5,14 @@ require "mundo"
 
 Asteroides = {}
 Direcoes = {
-    { x=0, y=-1 },
-    { x=1, y=0 },
-    { x=0, y=1 },
-    { x=-1, y=0 },
-    { x=1, y=-1},
-    { x=1, y=1},
-    { x=-1,y=1},
-    { x=-1, y=-1 }
+    { x=0, y=-1, op=3 },
+    { x=1, y=0, op=4 },
+    { x=0, y=1, op=1 },
+    { x=-1, y=0, op=2 },
+    { x=1, y=-1, op=7},
+    { x=1, y=1, op=8},
+    { x=-1,y=1, op=5},
+    { x=-1, y=-1, op=6 }
 }
 
 for i = 1, 20 do
@@ -29,6 +29,21 @@ Substep = 0
 
 Direcao = 1
 
+
+function Camera(d)
+    if d == 1 or d == 5 or d == 8 then
+        Mm:move_y(-Step)
+    end
+    if d == 2 or d == 5 or d == 6 then
+        Mm:move_x(Step)
+    end
+    if d == 3 or d == 6 or d == 7 then
+        Mm:move_y(Step)
+    end
+    if d == 4 or d == 7 or d == 8 then
+        Mm:move_x(-Step)
+    end
+end
 
 function update()
     local ajuste
@@ -81,18 +96,7 @@ function update()
     end
 
     if ajuste == 1 then
-        if Direcao == 1 or Direcao == 5 or Direcao == 8 then
-            Mm:move_y(-Step)
-        end
-        if Direcao == 2 or Direcao == 5 or Direcao == 6 then
-            Mm:move_x(Step)
-        end
-        if Direcao == 3 or Direcao == 6 or Direcao == 7 then
-            Mm:move_y(Step)
-        end
-        if Direcao == 4 or Direcao == 7 or Direcao == 8 then
-            Mm:move_x(-Step)
-        end
+        Camera(Direcao)
         Substep = Substep + 1
         if Substep >= 10 then
             Step = Step + 1
@@ -124,6 +128,9 @@ function update()
         a=Asteroides[i]
         if a:bateu(Mm) then
             ui.print("Bateu! " .. i, 220, 240, 2)
+            Step = 1
+            Substep = 0
+            Camera(Direcoes[Direcao].op)
         end
         
         
