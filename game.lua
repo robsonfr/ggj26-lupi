@@ -91,4 +91,6 @@ function update()
     ui.print("Hello World!", 200, 260, 2)
     ui.spr(Sprites["nave0" .. direcao], 232, 127)
     ui.spr(Sprites["aster0" .. estado], a_x, a_y)
+    ui.spr(Sprites["mask01"], 160, 100)
+    ui.spr(Sprites["mask01"], 360, 100)
 end
