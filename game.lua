@@ -99,8 +99,8 @@ function update()
     -- end
 
 
-    for i = 0, 255 do
-        ui.palset(i, palette[i])
+    for i = 1, #Palette do
+        ui.palset(i-1, Palette[i])
     end
     -- ui.palset(0, 0x0)
     -- ui.palset(1, 0xBF8)
