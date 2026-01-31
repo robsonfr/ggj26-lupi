@@ -63,7 +63,7 @@ ui.palset(13, 0x6C5F)
 ui.palset(14, 0x4835)
 ui.palset(15, 0x7FFF)
     ui.cls(0)
-    ui.print("Teste Global Game Jam 2026", 200, 260, 2)
+    ui.print("Hello World!", 200, 260, 2)
     ui.spr(Sprites.mask01, x, y)
     ui.spr(Sprites.aster01, a_x, a_y)
 end
