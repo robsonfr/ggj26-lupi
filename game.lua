@@ -125,6 +125,7 @@ function update()
     ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
+    
     for i = 1, #Asteroides do
         local a
         a=Asteroides[i]
