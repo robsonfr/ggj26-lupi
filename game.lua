@@ -110,9 +110,10 @@ function update()
     end
 
     if ui.btn(BTN_Z) then
-        -- local k
+        local k
         if NumTiros < 10 then
             NumTiros = NumTiros + 1
+            k = NumTiros
             Tiros[k] = Tiro:new()
             Tiros[k].direcao = Direcao
             Tiros[k].x = Direcoes[Direcao].posTiro.x
