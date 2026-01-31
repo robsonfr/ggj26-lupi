@@ -120,15 +120,14 @@ function update()
     for i = 1, #Asteroides do
         -- ui.print("x=" .. Asteroides[i].x,10,i*12,2)
         -- ui.print("y=" .. Asteroides[i].y,130,i*12,2)
-        a=Mm:paralocal(Asteroides[i].x, Asteroides[i].y)
-        if a.natela then
-            if a.x >= 224 and a.x <= 256 and a.y >= 119 and a.y <= 155 then
-                ui.print("Bateu! " .. i, 220, 240, 2)
-            end
+        local a
+        a=Asteroides[i]
+        if a:bateu(Mm) then
+            ui.print("Bateu! " .. i, 220, 240, 2)
         end
         
         
-        Asteroides[i]:draw(Mm)
+        a:draw(Mm)
     end
     ui.spr(Sprites["mask01"], 160, 100)
     ui.spr(Sprites["mask01"], 360, 100)

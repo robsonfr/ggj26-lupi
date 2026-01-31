@@ -5,7 +5,15 @@ Aster = {
     x = 0,
     y = 0,
     estado=1,
+    limites = {
+        {x=22,y=16, s=1, t=0},
+        {x=19,y=16, s=1, t=0},
+        {x=16,y=13, s=2, t=0},
+        {x=14,y=10, s=5, t=4},
+        {x=0,y=0, s=0, t=0},
+    },
     draw = function(self, m)
+        local l
         if self.estado < 5 then
             l = m:paralocal(self.x, self.y)
             if l.natela then
@@ -13,7 +21,19 @@ Aster = {
             end
         end
     end,
-    atingiu = function(self)
+    bateu = function(self, m)
+        local l
+        local limite
+        l = m:paralocal(self.x, self.y)
+            if l.natela then
+                limite = self.limites[self.estado]
+                if (l.x + limite.s <= 232 + 16) and (l.x + limite.s + limite.x >= 232) and (l.y + limite.t <= 127 + 16) and (l.y + limite.t + limite.y >= 127) then
+                    return true
+                end
+            end
+        return false
+    end,
+    recebeutiro = function(self)
         if self.estado < 5 then
             self.estado = self.estado + 1
         end
