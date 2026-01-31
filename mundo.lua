@@ -35,7 +35,7 @@ Mundo = {
     move = function(self, dx, dy)
         self.move_x(dx)
         self.move_y(dy)
-    end
+    end,
     zero = function(self)
         self.x = 0
         self.y = 0
