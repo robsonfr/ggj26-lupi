@@ -7,7 +7,7 @@ Aster = {
     estado=1,
     draw = function(self, m)
         if estado < 5 then
-            l = m.paralocal(self.x, self.y)
+            l = m:paralocal(self.x, self.y)
             if l.natela then
                 ui.spr(Sprites["aster0" .. estado], l.x, l.y)
             end
