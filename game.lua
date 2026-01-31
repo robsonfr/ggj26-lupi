@@ -110,12 +110,21 @@ function update()
     end
 
     if ui.btn(BTN_Z) then
+        local k
         if NumTiros < 10 then
             NumTiros = NumTiros + 1
-            Tiros[NumTiros] = Tiro:new()
-            Tiros[NumTiros].direcao = Direcao
-            Tiros[NumTiros].x = Direcoes[Direcao].posTiro.x
-            Tiros[NumTiros].y = Direcoes[Direcao].posTiro.y
+            k = NumTiros
+            Tiros[k] = Tiro:new()
+        else
+            k = 1
+            while Tiros[k] and k <= 10 do
+                k = k + 1
+            end
+            if k <= 10 then
+                Tiros[k].direcao = Direcao
+                Tiros[k].x = Direcoes[Direcao].posTiro.x
+                Tiros[k].y = Direcoes[Direcao].posTiro.y
+            end
         end
     end
 
@@ -125,7 +134,7 @@ function update()
     ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
-    
+
     for i = 1, #Asteroides do
         local a
         a=Asteroides[i]
@@ -137,6 +146,16 @@ function update()
         end
         
         a:draw(Mm)
+    end
+
+    for i = 1, NumTiros do
+        local tt
+
+        tt = Tiros[i]
+
+        if tt and not tt:updatedraw(Mm) then
+            Tiros[i] = nil
+        end 
     end
 
 --    ui.spr(Sprites["mask01"], 160, 100)
