@@ -116,7 +116,7 @@ function update()
             k = NumTiros
         else
             k = 1
-            while Tiros[k] == nil and k <= 10 do
+            while Tiros[k] = nil and k <= 10 do
                 k = k + 1
             end
             if k <= 10 then
