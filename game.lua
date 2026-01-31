@@ -49,6 +49,7 @@ function update()
             end
         --        substep = 0
         --      step = 1
+        end
     end
 
 ui.palset(0, 0x0)
