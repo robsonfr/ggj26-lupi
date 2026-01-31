@@ -15,10 +15,10 @@ Direcoes = {
     { x=-1, y=-1 }
 }
 
-for i = 1, 100 do
+for i = 1, 20 do
     Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-4000,4000)
-    Asteroides[i].y = math.random(-3200,3200)
+    Asteroides[i].x = math.random(-400,400)
+    Asteroides[i].y = math.random(-320,320)
     Asteroides[i].estado = math.random(1,4)
 end
 
@@ -118,6 +118,8 @@ function update()
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
     for i = 1, #Asteroides do
+        ui.print("x=" .. Asteroides[i].x,10,i*12)
+        ui.print("y=" .. Asteroides[i].y,130,i*12)
         if (Asteroides[i].x >= -16) and (Asteroides[i].x <= 16) and (Asteroides[i].y >= -16) and (Asteroides[i].y <= 16) then
             ui.print("Game over ".. i, 200, 120, 2)
         end
