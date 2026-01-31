@@ -107,6 +107,7 @@ function update()
 
     if ui.btnp(BTN_X) then
         Mm:zero()
+        NumTiros = 0
     end
 
     if ui.btn(BTN_Z) then
