@@ -41,11 +41,9 @@ function update()
         step = 1
     end
 
-
-    ui.palset(0, 0x03E6) 
-    ui.palset(1, 0x07E0) 
+    ui.palset(7, 0)
     ui.palset(2, 0x467A)
-    ui.cls(1)
-    ui.print("Teste Global Game Jam 2026", 80, 120, 2)
+    ui.cls(7)
+    ui.print("Teste Global Game Jam 2026", 200, 260, 2)
     ui.spr(Sprites.mask01, x, y)
 end
