@@ -134,7 +134,7 @@ function update()
                 -- k = NumTiros
             else
                 k = 1
-                while Tiros[k]:natela(Mm) and k <= #Tiros do
+                while Mm and k and Tiros[k] and Tiros[k]:natela(Mm) and k <= #Tiros do
                     k = k + 1
                 end
                 if k <= #Tiros then
