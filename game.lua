@@ -110,22 +110,27 @@ function update()
     end
 
     if ui.btn(BTN_Z) then
-        local k
+        -- local k
         if NumTiros < 10 then
             NumTiros = NumTiros + 1
-            k = NumTiros
-        else
-            k = 1
-            while Tiros[k] == nil and k <= 10 do
-                k = k + 1
-            end
-            if k <= 10 then
-                Tiros[k] = Tiro:new()
-                Tiros[k].direcao = Direcao
-                Tiros[k].x = Direcoes[Direcao].posTiro.x
-                Tiros[k].y = Direcoes[Direcao].posTiro.y
-            end
+            Tiros[k] = Tiro:new()
+            Tiros[k].direcao = Direcao
+            Tiros[k].x = Direcoes[Direcao].posTiro.x
+            Tiros[k].y = Direcoes[Direcao].posTiro.y
+            -- k = NumTiros
         end
+        -- else
+        --     k = 1
+        --     while Tiros[k] == nil and k <= 10 do
+        --         k = k + 1
+        --     end
+        --     if k <= 10 then
+        --         Tiros[k] = Tiro:new()
+        --         Tiros[k].direcao = Direcao
+        --         Tiros[k].x = Direcoes[Direcao].posTiro.x
+        --         Tiros[k].y = Direcoes[Direcao].posTiro.y
+        --     end
+        -- end
     end
 
     ui.cls(0)
