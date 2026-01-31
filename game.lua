@@ -19,7 +19,7 @@ for i = 1, 10 do
 end
 
 
-mm = Mundo::new()
+mm = Mundo:new()
 a_x = 100
 a_y = 100
 
