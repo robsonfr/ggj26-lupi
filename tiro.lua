@@ -6,6 +6,9 @@ Tiro = {
     x = 0,
     y = 0,
     direcao = 1,
+    natela = function(self, m)
+        return m:paralocal(self.x, self.y).natela
+    end,
     updatedraw = function(self, m)
         local l
         local offset
