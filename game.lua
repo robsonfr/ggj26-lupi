@@ -4,10 +4,21 @@ require "aster"
 require "mundo"
 
 Asteroides = {}
+Direcoes = {
+    { x=0, y=-1 },
+    { x=1, y=0 },
+    { x=0, y=1 },
+    { x=-1, y=0 },
+    { x=1, y=-1},
+    { x=1, y=1},
+    { x=-1,y=1},
+    { x=-1, y=-1 }
+}
+
 for i = 1, 100 do
     Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-400,400)
-    Asteroides[i].y = math.random(-320,320)
+    Asteroides[i].x = math.random(-4000,4000)
+    Asteroides[i].y = math.random(-3200,3200)
     Asteroides[i].estado = math.random(1,4)
 end
 
@@ -108,7 +119,7 @@ function update()
     
     for i = 1, #Asteroides do
         if Asteroides[i].x >= -16 and Asteroides[i].x <= 16 and Asteroides[i].y >= -16 and Asteroides[i].y <= 16 then
-            ui.print("Game over", 200, 220, 2)
+            ui.print("Game over", 200, 120, 2)
         end
         Asteroides[i]:draw(Mm)
     end

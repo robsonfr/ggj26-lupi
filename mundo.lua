@@ -17,18 +17,18 @@ Mundo = {
         return { x=lx, y=ly, natela=natela }
     end,
     move_x = function(self, dx)
-        if dx < 0 and self.x > -width then
+        if dx < 0 and self.x > (width * -10) then
             self.x = self.x + dx
         end
-        if dx > 0 and self.x < width then
+        if dx > 0 and self.x < (width * 10) then
             self.x = self.x + dx
         end
     end,
     move_y = function(self, dy)
-        if dy < 0 and self.y > -height then
+        if dy < 0 and self.y > (height * -10) then
             self.y = self.y + dy
         end
-        if dy > 0 and self.y < height then
+        if dy > 0 and self.y < (height * 10) then
             self.y = self.y + dy
         end
     end,
