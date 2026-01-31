@@ -65,11 +65,14 @@ function update()
     ui.palset(13, 0x6C5F)
     ui.palset(14, 0x4835)
     ui.palset(15, 0x7FFF)
-    if step <= 4 then
-        estado = step
-    else
-        estado = 1
+    if ui.btnp(BTN_Z) and estado < 4 then
+        estado = estado + 1
     end
+
+    if ui.btnp(BTN_X) and estado > 0 then
+        estado = estado - 1
+    end
+
     ui.cls(0)
     ui.print("Hello World!", 200, 260, 2)
     ui.spr(Sprites.mask01, x, y)
