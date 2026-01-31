@@ -177,7 +177,7 @@ function update()
     ui.print("Tempo=" .. Tempo, 10, 10, 2)
     ui.print("TempoTiro=" .. TempoTiro, 10, 20, 2)
     ui.print("#Tiros=" .. #Tiros, 10, 30, 2)
-    ui.print("NumTiros=" .. NumTiros,10,40,2)
+    
     if k <= 10 and k>= 1 and Tiros[k] then
         ui.print("Tiros[" .. k .. "].x=" .. Tiros[k].x,10,50,2)
         ui.print("Tiros[" .. k .. "].y=" .. Tiros[k].y,10,60,2)
