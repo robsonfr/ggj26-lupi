@@ -72,11 +72,14 @@ function update()
     if ajuste == 1 then
         if Direcao == 1 or Direcao == 5 or Direcao == 8 then
             Mm:move_y(-Step)
-        elseif Direcao == 2 or Direcao == 5 or Direcao == 6 then
+        end
+        if Direcao == 2 or Direcao == 5 or Direcao == 6 then
             Mm:move_x(Step)
-        elseif Direcao == 3 or Direcao == 6 or Direcao == 7 then
+        end
+        if Direcao == 3 or Direcao == 6 or Direcao == 7 then
             Mm:move_y(Step)
-        elseif Direcao == 4 or Direcao == 7 or Direcao == 8 then
+        end
+        if Direcao == 4 or Direcao == 7 or Direcao == 8 then
             Mm:move_x(-Step)
         end
         Substep = Substep + 1
@@ -98,6 +101,8 @@ function update()
     end
 
     ui.cls(0)
+    ui.clip(0,0,480,270)
+    ui.camera()
     ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     
