@@ -49,6 +49,9 @@ function update()
             end
         --        substep = 0
         --      step = 1
+        else
+            step = 1
+            substep = 0
         end
     end
 
