@@ -24,6 +24,8 @@ Direcao = 1
 Tiros = {}
 NumTiros = 0
 
+Tempo = 0
+
 function Camera(d)
     if d == 1 or d == 5 or d == 8 then
         Mm:move_y(-Step)
@@ -39,11 +41,16 @@ function Camera(d)
     end
 end
 
+TempoTiro = 0
+
 function update()
     local ajuste
+    
+    Tempo = Tempo + 1
     ajuste = 0
     DirX = 0
     DirY = 0
+    
     if ui.btn(LEFT) then
         --Direcao = 4
         DirX = -1
@@ -112,14 +119,20 @@ function update()
 
     if ui.btn(BTN_Z) then
         local k
-        if NumTiros < 10 then
-            NumTiros = NumTiros + 1
-            k = NumTiros
-            Tiros[k] = Tiro:new()
-            Tiros[k].direcao = Direcao
-            Tiros[k].x = Direcoes[Direcao].posTiro.x
-            Tiros[k].y = Direcoes[Direcao].posTiro.y
-            -- k = NumTiros
+        if TempoTiro == 0 then
+            TempoTiro = Tempo - 20
+        end
+        if Tempo - TempoTiro >= 15 then
+            TempoTiro = Tempo
+            if NumTiros < 10 then
+                NumTiros = NumTiros + 1
+                k = NumTiros
+                Tiros[k] = Tiro:new()
+                Tiros[k].direcao = Direcao
+                Tiros[k].x = Direcoes[Direcao].posTiro.x
+                Tiros[k].y = Direcoes[Direcao].posTiro.y
+                -- k = NumTiros
+            end
         end
         -- else
         --     k = 1
