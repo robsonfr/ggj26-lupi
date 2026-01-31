@@ -128,7 +128,7 @@ function update()
         a=Asteroides[i]
         if a:bateu(Mm) then
             ui.print("Bateu! " .. i, 220, 240, 2)
-            Step = 1
+            Step = 2
             Substep = 0
             Camera(Direcoes[Direcao].op)
         end
