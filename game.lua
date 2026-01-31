@@ -4,5 +4,6 @@ function _draw()
 end 
 
 function _update()
-
+    if ui.btn(0) then
+    end
 end
