@@ -75,6 +75,6 @@ function update()
 
     ui.cls(0)
     ui.print("Hello World!", 200, 260, 2)
-    ui.spr(Sprites.mask01, x, y)
+    ui.spr(Sprites["nave0" .. direcao, 232, 127)
     ui.spr(Sprites["aster0" .. estado], a_x, a_y)
 end
