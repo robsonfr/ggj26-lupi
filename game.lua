@@ -6,7 +6,7 @@ require "globais"
 require "tiro"
 
 Asteroides = {}
-
+MaximoTiros = 30
 
 for i = 1, 20 do
     Asteroides[i] = Aster:new()
@@ -22,7 +22,7 @@ Substep = 0
 
 Direcao = 1
 Tiros = {}
-for i=1, 10 do
+for i=1, MaximoTiros do
     Tiros[i] = Tiro:new()
     Tiros[i].x = -1000
     Tiros[i].y = -1000
@@ -104,7 +104,7 @@ function update()
         Camera(Direcao)
         Substep = Substep + 1
         if Substep >= 10 then
-            -- Step = Step + 1
+            Step = Step + 1
             Substep = 0
         end
     else
