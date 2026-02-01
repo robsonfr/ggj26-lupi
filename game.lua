@@ -407,6 +407,7 @@ function gameplay()
             if bb.estado == 2 then
                 if math.abs(OMonstrao.x - bb.x) <= 40 and math.abs(OMonstrao.y - bb.y) <= 40 then
                     OMonstrao.nivel = OMonstrao.nivel - 2
+                    Bombas[i].estado = 0
                     if OMonstrao.nivel <= 0 then
                         DestruiuMonstrao = true
                         if ContadorGameOver == TempoGameOver then
