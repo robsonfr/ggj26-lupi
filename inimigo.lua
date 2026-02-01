@@ -23,16 +23,16 @@ Inimigo = {
         local l = m:paralocal(self.x, self.y)
         if l.natela then
             if m.x < self.x then
-                self.dirX = 1
-            end
-            if m.x > self.x then
                 self.dirX = -1
             end
+            if m.x > self.x then
+                self.dirX = 1
+            end
             if m.y < self.y then
-                self.dirY = 1
+                self.dirY = -1
             end
             if m.y > self.y then
-                self.dirY = -1
+                self.dirY = 1
             end
 
         end
