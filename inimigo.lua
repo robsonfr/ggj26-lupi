@@ -23,17 +23,19 @@ Inimigo = {
         -- Verificar se ha minerio perto
         -- Verificar se esta perto da nave
         local l = m:paralocal(self.x, self.y)
-        if m.x < self.x then
-            self.dirX = -1 * math.random(0,1)
-        end
-        if m.x > self.x then
-            self.dirX = 1 * math.random(0,1)
-        end
-        if m.y < self.y then
-            self.dirY = -1 * math.random(0,1)
-        end
-        if m.y > self.y then
-            self.dirY = 1 * math.random(0,1)
+        if math.random(1,100) < 30 then
+            if m.x < self.x then
+                self.dirX = -1 * math.random(0,1)
+            end
+            if m.x > self.x then
+                self.dirX = 1 * math.random(0,1)
+            end
+            if m.y < self.y then
+                self.dirY = -1 * math.random(0,1)
+            end
+            if m.y > self.y then
+                self.dirY = 1 * math.random(0,1)
+            end
         end
         self.x = self.x + self.dirX * self.vel
         self.y = self.y + self.dirY * self.vel
