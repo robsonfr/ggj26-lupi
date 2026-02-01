@@ -161,7 +161,7 @@ function update()
                     b=Asteroides[j]
                     lbx = (b:limiteAtual().x // 2)
                     lby = (b:limiteAtual().y // 2)
-                    if b.estado <=4 and b:natela(Mm) and math.abs(b.x + lbx - tt.x) < lbx and math.abs(b.y + lby - tt.y) < lby then
+                    if b.estado <=4 and b:natela(Mm) and b.x - tt.x < lbx and b.x - tt.x > -lbx and b.y - tt.y < lby and b.y - tt.y > -lby then
                         b:recebeutiro()
                         sfx.fx(16, 25)
                         if b.estado == 5 then
