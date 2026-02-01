@@ -31,8 +31,8 @@ Inimigo = {
         if m.y > self.y then
             self.dirY = 1
         end
-        self.x = self.x + self.dirX * math.random(1,VelocidadeInimigo)
-        self.y = self.y + self.dirY * math.random(1,VelocidadeInimigo)
+        self.x = self.x + self.dirX * math.random(-1,VelocidadeInimigo)
+        self.y = self.y + self.dirY * math.random(-1,VelocidadeInimigo)
 
 
     end
