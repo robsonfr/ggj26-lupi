@@ -284,14 +284,15 @@ function gameplay()
             return
         else
             if not DestruiuMonstrao then
-                sfx.fx(26,math.random(1,10))
                 if ContadorGameOver >=60 then
+                    sfx.fx(38,math.random(1,10))
                     Direcao = Direcao + 1
                     if Direcao >= 9 then
                         Direcao = 1
                     end
                     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
                 else
+                    sfx.fx(26,math.random(1,10))
                     if ContadorGameOver > 30 then
                         ui.circfill(240,135,60-ContadorGameOver,8)
                     else
