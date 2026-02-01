@@ -78,8 +78,8 @@ function update()
 end
 
 function abertura()
-    ui.spr(Sprites.titulo01,0,PosicaoTitulo)
-    ui.spr(Sprites.titulo02,0,PosicaoTitulo+135)
+    ui.spr(Sprites.mask02,0,PosicaoTitulo)
+    
     if PosicaoTitulo > 0 then
         PosicaoTitulo = PosicaoTitulo - 1
     else
@@ -90,7 +90,7 @@ function abertura()
             AberturaMensagem = 30
             CorTextoAbertura = 3 - CorTextoAbertura
         end
-        
+        ui.print(" ----- MONSTRAO MASCARADO --------", 40, 220, 3)
         ui.print("PRESSIONE [A] PARA INICIAR!!", 40, 240, CorTextoAbertura)
     end
     if ui.btnp(BTN_Z) then
