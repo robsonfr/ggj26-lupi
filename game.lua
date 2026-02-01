@@ -373,7 +373,7 @@ function gameplay()
 
     for i=1, #Estrelas do
         local e
-        e = Estrelas[e]
+        e = Estrelas[i]
         e:draw(Mm)
     end
     if OMonstrao.nivel > 0 then
