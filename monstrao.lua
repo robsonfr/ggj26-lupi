@@ -15,7 +15,7 @@ Monstrao = {
         end
     end,
     logic = function(self, m)
-        if self.nivel >= 2 then
+        if self.nivel >= 1 then
             if m.x > self.x then
                 self.dirX = 1
             end
@@ -30,8 +30,14 @@ Monstrao = {
             end
         end
         if self.nivel > 0 and math.random(1,100) < 900 then
-            self.x = self.x + self.dirX * 5
-            self.y = self.y + self.dirY * 5
+            local v
+            if self.nivel < 5 then
+                v = 6-self.nivel
+            else
+                v = 2
+            end
+            self.x = self.x + self.dirX * v
+            self.y = self.y + self.dirY * v
         end
     end
 }

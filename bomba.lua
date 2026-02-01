@@ -23,8 +23,32 @@ Bomba = {
         end
     end,
     logic = function(self)
-        if self.estado == 1 then
-            
+        if self.estado == 2 then
+            if OMonstrao.x > self.x then
+                self.dirX = 1
+            end
+            if OMonstrao.x < self.x then
+                self.dirX = -1
+            end
+            if OMonstrao.y > self.y then
+                self.dirY = 1
+            end
+            if OMonstrao.x < self.x then
+                self.dirY = -1
+            end
+            for i = 1,#Inimigos do
+                local inm
+                inm = Inimigos[i]
+                if math.abs(inm.x - self.x) <= 2 and math.abs(inm.y - self.y) <= 2 then
+                    Inimigos[i].x = math.random(-400,400)
+                    Inimigos[i].y = math.random(-400,400)
+                    Inimigos[i].vel = math.random(1,2)
+                    Score = Score + 100
+                    sfx.fx(16, 15)
+                    self.estado = 0
+                    break
+                end
+            end
         end
     end
 }

@@ -250,6 +250,14 @@ function gameplay()
                 end
             end
         end
+
+        if ui.btnp(BTN_G) and NumBombas > 0 then
+            NumBombas = NumBombas - 1
+            for i = 1,#Bombas do
+                if Bombas[i].estado == 0 then
+                    Bombas[i].estado = 2
+                end
+            end
         ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     else
         ContadorGameOver = ContadorGameOver - 1
@@ -261,7 +269,7 @@ function gameplay()
             ui.print("GAME OVER!!", 200, 180, 2)
         end
     end
-    
+
 
     for i = 1, #Asteroides do
         local a
@@ -380,6 +388,26 @@ function gameplay()
     if OMonstrao.nivel > 0 then
         OMonstrao:logic(Mm)
         OMonstrao:draw(Mm)
+
+        if math.abs(OMonstrao.x - Mm.x) <= 8 and math.abs(OMonstrao.y - Mm.y) <=8 then
+            if ContadorGameOver == TempoGameOver then
+                ContadorGameOver = TempoGameOver-1
+            end
+        end
+
+        for i=1, #Bombas do
+            local bb = Bombas[i]
+            if bb.estado == 2 then
+                if math.abs(OMonstrao.x - bb.x) <= 40 and math.abs(OMonstrao.y - bb.y) <= 40 then
+                    OMonstrao.nivel = OMonstrao.nivel - 2
+                    if OMonstrao.nivel <= 0 then
+                        DestruiuMonstrao = true
+                        if ContadorGameOver == TempoGameOver then
+                            ContadorGameOver = TempoGameOver-1
+                        end
+                    end
+                end
+            end
     end
     --ui.spr(Sprites.mask02, 300, 80)
     huddraw()
