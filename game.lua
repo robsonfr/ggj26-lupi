@@ -18,19 +18,12 @@ OMonstrao = Monstrao:new()
 
 for i=1, 50 do
     Estrelas[i] = Estrela:new()
+    Estrelas[i].x = math.random(-240,240)
+    Estrelas[i].y = math.random(-135,135)
 end
 
-for i=1, NumAsteriodes do
-    Asteroides[i] = Aster:new()
-end
 
-for i=1, MaximoTiros do
-    Tiros[i] = Tiro:new()
-end
 
-for i=1, NumInimigos do
-    Inimigos[i] = Inimigo:new()
-end
 
 function reset()
     MaximoTiros = 15
@@ -71,11 +64,17 @@ function reset()
     end
 
     for i=1, MaximoTiros do
+        if Tiros[i] == nil then
+            Tiros[i] = Tiro:new()
+        end
         Tiros[i].x = -10000
         Tiros[i].y = -10000
     end
 
     for i=1, NumInimigos do
+        if Inimigos[i] == nil then
+            Inimigos[i] = Inimigo:new()
+        end
         Inimigos[i].x = math.random(-400,400)
         Inimigos[i].y = math.random(-400,400)
         Inimigos[i].vel = math.random(1,2)
