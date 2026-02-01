@@ -1,6 +1,3 @@
-require "tiro"
-require "mundo"
-require "aster"
 
 Direcoes = {
     { x=0, y=-1, op=3, posTiro = {x=0,y=-1} },
@@ -16,26 +13,12 @@ Direcoes = {
 Asteroides = {}
 MaximoTiros = 30
 CadenciaTiros = 5
-
-for i = 1, 20 do
-    Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-400,400)
-    Asteroides[i].y = math.random(-320,320)
-    Asteroides[i].estado = math.random(1,4)
-end
-
-Mm = Mundo:new()
-
+NumAsteriodes = 50
+Mm = {}
 Step = 1
 Substep = 0
-
 Direcao = 1
 Tiros = {}
-for i=1, MaximoTiros do
-    Tiros[i] = Tiro:new()
-    Tiros[i].x = -1000
-    Tiros[i].y = -1000
-end
-
 Tempo = 0
 TempoTiro = 0
+

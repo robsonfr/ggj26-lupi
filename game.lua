@@ -5,6 +5,23 @@ require "mundo"
 require "globais"
 require "tiro"
 
+-- Inicializacoes de globais
+for i = 1, 20 do
+    Asteroides[i] = Aster:new()
+    Asteroides[i].x = math.random(-400,400)
+    Asteroides[i].y = math.random(-320,320)
+    Asteroides[i].estado = math.random(1,4)
+end
+
+Mm = Mundo:new()
+
+for i=1, MaximoTiros do
+    Tiros[i] = Tiro:new()
+    Tiros[i].x = -1000
+    Tiros[i].y = -1000
+end
+
+
 
 function Camera(d)
     if d == 1 or d == 5 or d == 8 then
