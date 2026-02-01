@@ -277,5 +277,6 @@ function gameplay()
         bb:draw(Mm)
 
     end
+    ui.spr(Sprites.mask02, 200, 120)
     huddraw()
 end
