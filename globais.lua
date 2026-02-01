@@ -11,9 +11,10 @@ Direcoes = {
 }
 
 Asteroides = {}
+Bombas = {}
 MaximoTiros = 15
 CadenciaTiros = 20
-NumAsteriodes = 50
+NumAsteriodes = 100
 Mm = {}
 Step = 1
 Substep = 0
@@ -26,6 +27,6 @@ NumBombas = 0
 VelocidadeTiro = 4
 Score = 0
 EstadoGlobal = 1
-NumInimigos = 10
+NumInimigos = 5
 TempoGameOver=120
 ContadorGameOver = TempoGameOver

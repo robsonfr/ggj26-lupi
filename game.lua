@@ -6,6 +6,7 @@ require "globais"
 require "tiro"
 require "hud"
 require "inimigo"
+require "bomba"
 
 -- Inicializacoes de globais
 
@@ -226,7 +227,14 @@ function gameplay()
                             Score = Score + 50
                             sfx.fx(16, 25)
                             if b.estado == 5 then
-                                NumBombas = NumBombas + 1
+                                local u
+                                u = #Bombas + 1
+                                Bombas[u] = Bomba:new()
+                                Bombas[u].x = b.x
+                                Bombas[u].y = b.y
+                                Bombas[u].estado = 0
+                                Bombas[u].dirX = 0
+                                Bombas[u].dirY = 0
                             end
                             tt.x = -10000
                             tt.y = -10000
@@ -262,6 +270,12 @@ function gameplay()
             end
         end
         inm:draw(Mm)
+    end
+    for i=1, #Bombas do
+        local bb = Bombas[i]
+        bb:logic()
+        bb:draw(Mm)
+
     end
     huddraw()
 end
