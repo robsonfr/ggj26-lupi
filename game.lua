@@ -6,10 +6,10 @@ require "globais"
 require "tiro"
 
 -- Inicializacoes de globais
-for i = 1, 20 do
+for i = 1, NumAsteriodes do
     Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-400,400)
-    Asteroides[i].y = math.random(-320,320)
+    Asteroides[i].x = math.random(-600,600)
+    Asteroides[i].y = math.random(-520,520)
     Asteroides[i].estado = math.random(1,4)
 end
 
@@ -17,8 +17,8 @@ Mm = Mundo:new()
 
 for i=1, MaximoTiros do
     Tiros[i] = Tiro:new()
-    Tiros[i].x = -1000
-    Tiros[i].y = -1000
+    Tiros[i].x = -10000
+    Tiros[i].y = -10000
 end
 
 
@@ -41,12 +41,12 @@ end
 
 function update()
     local ajuste
-    
+
     Tempo = Tempo + 1
     ajuste = 0
     DirX = 0
     DirY = 0
-    
+
     if ui.btn(LEFT) then
         DirX = -1
         ajuste = 1
@@ -111,7 +111,7 @@ function update()
     local k = 0
     if ui.btn(BTN_Z) then
         if TempoTiro == 0 then
-            TempoTiro = Tempo - (CadenciaTiros * 2) 
+            TempoTiro = Tempo - (CadenciaTiros * 2)
         end
         if Tempo - TempoTiro >= CadenciaTiros then
             TempoTiro = Tempo
@@ -135,37 +135,45 @@ function update()
     ui.camera()
     ui.print("Monstrao Mascarado", 200, 260, 2)
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
-    
+
     for i = 1, #Asteroides do
         local a
         a=Asteroides[i]
         if a:bateu(Mm) then
-            ui.print("Bateu! " .. i, 220, 240, 2)
             Step = 1
             Substep = 0
             Camera(Direcoes[Direcao].op)
         end
-        
         a:draw(Mm)
     end
-    
     for i = 1, #Tiros do
         local tt
-        
         tt = Tiros[i]
         if tt and tt:natela(Mm) then
-            tt:updatedraw(Mm)
+            if not tt:updatedraw(Mm) then
+                tt.x = -10000
+                tt.y = -10000
+            else
+                for j=1, #Asteroides do
+                    local b
+                    local lbx
+                    local lby
+                    b=Asteroides[j]
+                    lbx = (b.limites.x // 2)
+                    lby = (b.limites.y // 2)
+                    if b.estado <=4 and b:natela() and math.abs(b.x + lbx - tt.x) < lbx and math.abs(b.y + lby - tt.y) < lby then
+                        b:recebeutiro()
+                        sfx.fx(16, 25)
+                        if b.estado == 5 then
+                            Bombas = Bombas + 1
+                        end
+                        tt.x = -10000
+                        tt.y = -10000
+                        break
+                    end
+                end
+            end
         end
     end
 
-    ui.print("Tempo=" .. Tempo, 10, 10, 2)
-    ui.print("TempoTiro=" .. TempoTiro, 10, 20, 2)
-    ui.print("#Tiros=" .. #Tiros, 10, 30, 2)
-    
-    if k <= 10 and k>= 1 and Tiros[k] then
-        ui.print("Tiros[" .. k .. "].x=" .. Tiros[k].x,10,50,2)
-        ui.print("Tiros[" .. k .. "].y=" .. Tiros[k].y,10,60,2)
-    end
-
-    
 end

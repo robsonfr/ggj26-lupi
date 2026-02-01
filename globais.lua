@@ -21,4 +21,4 @@ Direcao = 1
 Tiros = {}
 Tempo = 0
 TempoTiro = 0
-
+Bombas = 0
