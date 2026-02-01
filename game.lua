@@ -7,7 +7,7 @@ require "tiro"
 require "hud"
 require "inimigo"
 require "bomba"
-require "Monstrao"
+require "monstrao"
 
 -- Inicializacoes de globais
 
