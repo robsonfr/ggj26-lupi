@@ -153,7 +153,7 @@ function abertura()
         TmpNota = TmpNota - 1
     end
    
-    ui.spr(Sprites.titulo,112,PosicaoTitulo)
+    ui.spr(Sprites.titulo,140,PosicaoTitulo)
     
     if PosicaoTitulo > 0 then
         PosicaoTitulo = PosicaoTitulo - 1
