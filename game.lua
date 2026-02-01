@@ -34,7 +34,7 @@ for i=1, NumInimigos do
     Inimigos[i] = Inimigo:new()
     Inimigos[i].x = math.random(-400,400)
     Inimigos[i].y = math.random(-400,400)
-    Inimigos[i].vel = math.random(1,3)
+    Inimigos[i].vel = math.random(1,2)
 end
 
 
@@ -219,7 +219,7 @@ function gameplay()
                         if math.abs(c.x + 8 - tt.x) < 8 and math.abs(c.y + 8 - tt.y) < 8 then
                             Inimigos[j].x = math.random(-400,400)
                             Inimigos[j].y = math.random(-400,400)
-                            Inimigos[j].vel = math.random(1,3)
+                            Inimigos[j].vel = math.random(1,2)
                             Score = Score + 100
                             sfx.fx(16, 50)
                             tt.x = -10000
