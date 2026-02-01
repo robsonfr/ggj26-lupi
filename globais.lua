@@ -22,6 +22,6 @@ Tiros = {}
 Tempo = 0
 TempoTiro = 0
 NumBombas = 0
-VelocidadeTiro = 2
+VelocidadeTiro = 4
 Score = 0
 EstadoGlobal = 1
