@@ -127,9 +127,9 @@ end
 TmpNota = 0
 Notas = {}
 NotaAtual = 0
-Notas[1] = {i=59, n=50, t=30 }
-Notas[2] = {i=59, n=100, t=30 }
-Notas[3] = {i=59, n=25, t=30 }
+Notas[1] = {i=59, n=50, t=15 }
+Notas[2] = {i=59, n=100, t=15 }
+Notas[3] = {i=59, n=25, t=15 }
 
 function abertura()
     if TmpNota == 0 then
