@@ -124,7 +124,29 @@ function update()
 
 end
 
+TmpNota = 0
+Notas = {}
+NotaAtual = 0
+Notas[1] = {i=59, n=50, t=30 }
+Notas[2] = {i=59, n=100, t=30 }
+Notas[3] = {i=59, n=25, t=30 }
+
 function abertura()
+    if TmpNota == 0 then
+        NotaAtual = NotaAtual + 1
+        if NotaAtual > #Notas then
+            NotaAtual = 0
+            TmpNota = 30
+        else
+            local nota = Notas[NotaAtual]
+            ui.sfx(nota.i, nota.n)
+            TmpNota = nota.t
+        end
+    else
+        TmpNota = TmpNota - 1
+    end
+
+    
     ui.spr(Sprites.mask02,0,PosicaoTitulo)
     
     if PosicaoTitulo > 0 then
@@ -290,7 +312,6 @@ function gameplay()
                     if Direcao >= 9 then
                         Direcao = 1
                     end
-                    ui.spr(Sprites["nave0" .. Direcao], 232, 127)
                 else
                     sfx.fx(26,math.random(1,10))
                     if ContadorGameOver > 30 then
@@ -300,6 +321,7 @@ function gameplay()
                     end
                 end
             end
+            ui.spr(Sprites["nave0" .. Direcao], 232, 127)
             ui.print("GAME OVER!!", 200, 180, 2)
         end
     end
@@ -437,6 +459,7 @@ function gameplay()
                     Bombas[i].estado = 0
                     if OMonstrao.nivel <= 0 then
                         DestruiuMonstrao = true
+                        Score = Score + 1000
                         if ContadorGameOver == TempoGameOver then
                             ContadorGameOver = TempoGameOver-1
                         end
