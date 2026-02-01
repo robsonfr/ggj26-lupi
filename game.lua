@@ -225,7 +225,7 @@ function creditos()
     ui.print("OBRIGADO POR JOGAR!!", 190, y+114,3)
 
     if y==79 then
-        ui.print("PRESSIONE [A] PARA JOGAR!", 170, 220, 3)
+        ui.print("PRESSIONE [A] PARA JOGAR!", 180, 220, 3)
     end
 
     if ui.btnp(BTN_G) then
@@ -392,9 +392,9 @@ function gameplay()
             Camera(Direcoes[Direcao].op)
         end
         if a.vida < 30 then
-            Asteroiodes[i].vida = Asteroiodes[i].vida + 1
+            Asteroides[i].vida = Asteroides[i].vida + 1
         else
-            Asteroiodes[i].vida = 0
+            Asteroides[i].vida = 0
             if math.random(1,1000) < 325 then
                 if Asteroides[i].estado < 5 then
                     Asteroides[i].estado = Asteroides[i].estado + 1
