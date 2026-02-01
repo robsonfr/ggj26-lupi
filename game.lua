@@ -127,9 +127,14 @@ end
 TmpNota = 0
 Notas = {}
 NotaAtual = 0
-Notas[1] = {i=59, n=50, t=15 }
-Notas[2] = {i=59, n=100, t=15 }
-Notas[3] = {i=59, n=25, t=15 }
+Notas[1] = {i=59, n=50, t=30 }
+Notas[2] = {i=59, n=100, t=30 }
+Notas[3] = {i=59, n=25, t=30 }
+Notas[4] = {i=-1, n=25, t=30 }
+Notas[5] = {i=59, n=75, t=30 }
+Notas[6] = {i=59, n=100, t=30 }
+Notas[7] = {i=59, n=50, t=30 }
+Notas[4] = {i=-1, n=25, t=30 }
 
 function abertura()
     if TmpNota == 0 then
@@ -139,7 +144,9 @@ function abertura()
             TmpNota = 30
         else
             local nota = Notas[NotaAtual]
-            sfx.fx(nota.i, nota.n)
+            if nota.i >=0 then
+                sfx.fx(nota.i, nota.n)
+            end
             TmpNota = nota.t
         end
     else
