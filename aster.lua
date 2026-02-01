@@ -24,6 +24,9 @@ Aster = {
     limiteAtual = function(self)
         return self.limites[self.estado]
     end,
+    natela = function(self, m)
+        return m:paralocal(self.x, self.y).natela
+    end,
     bateu = function(self, m)
         local l
         local limite
