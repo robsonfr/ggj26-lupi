@@ -30,8 +30,8 @@ Monstrao = {
             end
         end
         if self.nivel > 0 and math.random(1,100) < 900 then
-            self.x = self.x + self.dirX
-            self.y = self.y + self.dirY
+            self.x = self.x + self.dirX * 5
+            self.y = self.y + self.dirY * 5
         end
     end
 }

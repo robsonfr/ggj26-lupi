@@ -61,6 +61,7 @@ function reset()
         Inimigos[i].vel = math.random(1,2)
     end
     OMonstrao.nivel = 0
+    DestruiuMonstrao = false
 end
 
 reset()
@@ -125,11 +126,20 @@ function abertura()
 end
 
 function gameover()
+    local ns
+    ns = 0
+    if DestruiuMonstrao then
+        ns = Score
+        ui.print("PARABENS!! VOCE CONSEGUIU DESTRUIR O MONSTRAO MASCARADO!!", 20, 120, 3)
+    else
+        ui.print("QUE PENA!! NAO FOI DESTA VEZ", 20, 120, 3)
+    end
     ui.print("SEU SCORE: " .. Score, 40, 180, 3)
     ui.print("PRESSIONE [A] PARA REINICIAR!!", 40, 240, 3)
     if ui.btnp(BTN_G) then
         EstadoGlobal = 1
         reset()
+        Score = ns
     end
 end
 
