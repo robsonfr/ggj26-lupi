@@ -30,6 +30,9 @@ Aster = {
     bateu = function(self, m)
         local l
         local limite
+        if self.estado == 5 then
+            return false
+        end
         l = m:paralocal(self.x, self.y)
             if l.natela then
                 limite = self.limites[self.estado]
