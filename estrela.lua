@@ -9,8 +9,8 @@ Estrela = {
         if l.natela then
             ui.line(self.x, self.y, self.x, self.y, 3)
         else
-            self.x = math.random(-240, 240)
-            self.y = math.random(-135, 135)
+            self.x = math.random(-240, 240) + m.x
+            self.y = math.random(-135, 135) + m.y
         end
     end
 }
