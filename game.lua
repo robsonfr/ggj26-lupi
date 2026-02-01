@@ -53,18 +53,21 @@ function reset()
     Bombas = {}
 
     for i = 1, 20 do
-        
+        if Asteroides[i] == nil then
+            Asteroides[i] = Aster:new()
+        end
         Asteroides[i].x = math.random(-400,400)
         Asteroides[i].y = math.random(-300,300)
         Asteroides[i].estado = math.random(1,4)
     end
 
-    if NumAsteriodes > 20 then
-        for i = 21, NumAsteriodes do
-            Asteroides[i].x = math.random(-2000,2000)
-            Asteroides[i].y = math.random(-1500,1500)
-            Asteroides[i].estado = math.random(1,4)
+    for i = 21, NumAsteriodes do
+        if Asteroides[i] == nil then
+            Asteroides[i] = Aster:new()
         end
+        Asteroides[i].x = math.random(-2000,2000)
+        Asteroides[i].y = math.random(-1500,1500)
+        Asteroides[i].estado = math.random(1,4)
     end
 
     for i=1, MaximoTiros do
