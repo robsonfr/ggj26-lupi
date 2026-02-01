@@ -370,6 +370,12 @@ function gameplay()
             end
         end
     end
+
+    for i=1, #Estrelas do
+        local e
+        e = Estrelas[e]
+        e:draw(Mm)
+    end
     if OMonstrao.nivel > 0 then
         OMonstrao:logic(Mm)
         OMonstrao:draw(Mm)
