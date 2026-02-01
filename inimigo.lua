@@ -24,16 +24,16 @@ Inimigo = {
         -- Verificar se esta perto da nave
         local l = m:paralocal(self.x, self.y)
         if m.x < self.x then
-            self.dirX = -1
+            self.dirX = -1 * math.random(0,1)
         end
         if m.x > self.x then
-            self.dirX = 1
+            self.dirX = 1 * math.random(0,1)
         end
         if m.y < self.y then
-            self.dirY = -1
+            self.dirY = -1 * math.random(0,1)
         end
         if m.y > self.y then
-            self.dirY = 1
+            self.dirY = 1 * math.random(0,1)
         end
         self.x = self.x + self.dirX * self.vel
         self.y = self.y + self.dirY * self.vel
