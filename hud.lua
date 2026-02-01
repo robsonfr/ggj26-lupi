@@ -10,7 +10,7 @@ function huddraw()
     if AnimacaoRosto == 0 then
         AnimacaoRosto = Tempo
     end
-    if Tempo - AnimacaoRosto >= 90 then
+    if Tempo - AnimacaoRosto >= 45 then
         FrameRosto = 3 - FrameRosto
         AnimacaoRosto = Tempo
     end
