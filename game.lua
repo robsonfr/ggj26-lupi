@@ -153,7 +153,7 @@ function abertura()
         TmpNota = TmpNota - 1
     end
    
-    ui.spr(Sprites.mask02,0,PosicaoTitulo)
+    ui.spr(Sprites.titulo,112,PosicaoTitulo)
     
     if PosicaoTitulo > 0 then
         PosicaoTitulo = PosicaoTitulo - 1
@@ -165,7 +165,7 @@ function abertura()
             AberturaMensagem = 30
             CorTextoAbertura = 3 - CorTextoAbertura
         end
-        ui.print(" ----- MONSTRAO MASCARADO --------", 40, 220, 3)
+        ui.print("GLOBAL GAME JAM 2026 - PUC PR", 40, 220, 3)
         ui.print("PRESSIONE [A] PARA INICIAR!!", 40, 240, CorTextoAbertura)
     end
     if ui.btnp(BTN_G) then
