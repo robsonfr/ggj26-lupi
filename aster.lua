@@ -5,6 +5,7 @@ Aster = {
     x = 0,
     y = 0,
     estado=1,
+    vida=0,
     limites = {
         {x=22,y=16, s=1, t=0},
         {x=19,y=16, s=1, t=0},

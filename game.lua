@@ -167,10 +167,17 @@ function abertura()
         end
         ui.print("GLOBAL GAME JAM 2026 - PUC PR", 40, 220, 3)
         ui.print("PRESSIONE [A] PARA INICIAR!!", 40, 240, CorTextoAbertura)
+        ui.print("PRESSIONE [X] PARA CREDITOS!!", 260, 240, 3)
     end
     if ui.btnp(BTN_G) then
         EstadoGlobal = 1
     end
+    if ui.btnp(BTN_X) then
+        TempoCreditos = 0
+        EstadoGlobal = 4
+    end
+
+
 end
 
 function gameover()
@@ -184,15 +191,51 @@ function gameover()
     end
     ui.print("SEU SCORE: " .. Score, 40, 180, 3)
     ui.print("PRESSIONE [A] PARA REINICIAR!!", 40, 240, 3)
+    ui.print("PRESSIONE [X] PARA CREDITOS!!", 260, 240, 3)
     if ui.btnp(BTN_G) then
         reset()
         EstadoGlobal = 1
         Score = ns
     end
+    if ui.btnp(BTN_X) then
+        reset()
+        TempoCreditos = 0
+        EstadoGlobal = 4
+        Score = ns
+    end
 end
 
-function creditos()
+TempoCreditos = 0
 
+function creditos()
+    local y
+    TempoCreditos = TempoCreditos + 1
+    ui.spr(Sprites.mask02, 390, 10)
+    
+    if TempoCreditos < 240 then
+        y=319-TempoCreditos
+    else
+        y=79
+    end
+    ui.print("MONSTRAO MASCARADO - LUPI EDITION", 10, y,3)
+    ui.print("CRIADO POR ROBSON DOS SANTOS", 10, y+20,3)
+    ui.print("AGRADECIMENTOS", 10, y+50,3)
+    ui.print("LINO E CAROL DO PROJETO LUPI", 10, y+66,3)
+    ui.print("BRUNO E TODO O PESSOAL DO GGJ 2026 PUCPR", 10, y+82,3)
+    ui.print("OBRIGADO POR JOGAR!!", 190, y+114,3)
+
+
+end
+
+function novabomba(x,y)
+    local u
+    u = #Bombas + 1
+    Bombas[u] = Bomba:new()
+    Bombas[u].x = x
+    Bombas[u].y = y
+    Bombas[u].estado = 1
+    Bombas[u].dirX = 0
+    Bombas[u].dirY = 0
 end
 
 function gameplay()
@@ -341,6 +384,19 @@ function gameplay()
             Substep = 0
             Camera(Direcoes[Direcao].op)
         end
+        if a.vida < 30 then
+            Asteroiodes[i].vida = Asteroiodes[i].vida + 1
+        else
+            Asteroiodes[i].vida = 0
+            if math.random(1,1000) < 325 then
+                if Asteroides[i].estado < 5 then
+                    Asteroides[i].estado = Asteroides[i].estado + 1
+                    if Asteroides[i].estado == 5 then
+                        novabomba(Asteroides[i].x, Asteroides[i].y)
+                    end
+                end
+            end
+        end
         a:draw(Mm)
     end
 
@@ -372,14 +428,7 @@ function gameplay()
                             Score = Score + 50
                             sfx.fx(16, 25)
                             if b.estado == 5 then
-                                local u
-                                u = #Bombas + 1
-                                Bombas[u] = Bomba:new()
-                                Bombas[u].x = b.x
-                                Bombas[u].y = b.y
-                                Bombas[u].estado = 1
-                                Bombas[u].dirX = 0
-                                Bombas[u].dirY = 0
+                                novabomba(b.x, b.y)
                             end
                             tt.x = -10000
                             tt.y = -10000
