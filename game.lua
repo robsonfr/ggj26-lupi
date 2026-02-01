@@ -84,7 +84,7 @@ function abertura()
         PosicaoTitulo = PosicaoTitulo - 1
     else
         PosicaoTitulo = 0
-        if AberturaMensagem then
+        if AberturaMensagem > 0 then
             AberturaMensagem = AberturaMensagem - 1
         else
             AberturaMensagem = 30
