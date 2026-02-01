@@ -93,7 +93,7 @@ function abertura()
         ui.print(" ----- MONSTRAO MASCARADO --------", 40, 220, 3)
         ui.print("PRESSIONE [A] PARA INICIAR!!", 40, 240, CorTextoAbertura)
     end
-    if ui.btnp(BTN_Z) then
+    if ui.btnp(BTN_F) then
         EstadoGlobal = 1
     end
 end
@@ -249,7 +249,7 @@ function gameplay()
                                 Bombas[u] = Bomba:new()
                                 Bombas[u].x = b.x
                                 Bombas[u].y = b.y
-                                Bombas[u].estado = 0
+                                Bombas[u].estado = 1
                                 Bombas[u].dirX = 0
                                 Bombas[u].dirY = 0
                             end
@@ -292,6 +292,22 @@ function gameplay()
         local bb = Bombas[i]
         bb:logic()
         bb:draw(Mm)
+        if bb.estado == 1 then
+            if math.abs(Mm.x - bb.x) <= 2 and math.abs(Mm.y - bb.y) <= 2 then
+                bb.estado = 0
+                NumBombas = NumBombas + 1
+            else
+                for j=1, #Inimigos do
+                    local inm = Inimigos[j]
+                    if math.abs(inm.x - bb.x) <= 2 and math.abs(inm.y - bb.y) <= 2 then
+                        bb.estado = 0
+                        if NivelMonstrao < 5 then
+                            NivelMonstrao = NivelMonstrao + 1
+                        end
+                    end
+                end
+            end
+        end
 
     end
     --ui.spr(Sprites.mask02, 300, 80)

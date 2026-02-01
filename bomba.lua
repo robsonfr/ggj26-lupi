@@ -13,7 +13,7 @@ Bomba = {
     draw = function(self,m)
         local l
         l = m:paralocal(self.x, self.y)
-        if l.natela then
+        if l.natela and self.estado > 0 then
             ui.rectfill(l.x-1,l.y-1,l.x+1,l.y+1,self.cor)
             self.tcor = self.tcor - 1
             if self.tcor == 0 then
