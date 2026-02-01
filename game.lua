@@ -125,8 +125,10 @@ function abertura()
 end
 
 function gameover()
+    ui.print("SEU SCORE: " .. Score, 40, 180, 3)
+    ui.print("PRESSIONE [A] PARA REINICIAR!!", 40, 240, 3)
     if ui.btnp(BTN_G) then
-        EstadoGlobal = 2
+        EstadoGlobal = 1
         reset()
     end
 end
