@@ -78,7 +78,8 @@ function update()
 end
 
 function abertura()
-    ui.spr(Sprites.titulo,0,PosicaoTitulo)
+    ui.spr(Sprites.titulo01,0,PosicaoTitulo)
+    ui.spr(Sprites.titulo02,0,PosicaoTitulo+135)
     if PosicaoTitulo > 0 then
         PosicaoTitulo = PosicaoTitulo - 1
     else
