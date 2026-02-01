@@ -41,6 +41,8 @@ Bomba = {
                 self.dirX = Direcoes[Direcao].x
                 self.dirY = Direcoes[Direcao].y
             end
+            self.x = self.x + self.dirX
+            self.y = self.y + self.dirY
             for i = 1,#Inimigos do
                 local inm
                 inm = Inimigos[i]
