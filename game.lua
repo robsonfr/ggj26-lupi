@@ -136,9 +136,9 @@ function update()
                 k = k + 1
             end
             if k<= #Tiros then
-                Tiros[k].x = Direcoes[Direcao].posTiro.x
-                Tiros[k].y = Direcoes[Direcao].posTiro.y
-                Tiros[k].direcao = Direcao                
+                Tiros[k].x = Mm.x + Direcoes[Direcao].posTiro.x
+                Tiros[k].y = Mm.y + Direcoes[Direcao].posTiro.y
+                Tiros[k].direcao = Direcao
             end
         end
     end
