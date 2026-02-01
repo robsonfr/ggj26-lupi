@@ -53,7 +53,7 @@ function reset()
     CorTextoAbertura = 3
     NivelMonstrao = 0
     Bombas = {}
-    
+
     for i = 1, 20 do
         
         Asteroides[i].x = math.random(-400,400)
@@ -363,13 +363,13 @@ function gameplay()
         bb:draw(Mm)
         if bb.estado == 1 then
             if math.abs(Mm.x - bb.x) <= 8 and math.abs(Mm.y - bb.y) <= 8 then
-                bb.estado = 0
+                Bombas[i].estado = 0
                 NumBombas = NumBombas + 1
             else
                 for j=1, #Inimigos do
                     local inm = Inimigos[j]
                     if math.abs(inm.x - bb.x) <= 8 and math.abs(inm.y - bb.y) <= 8 then
-                        bb.estado = 0
+                        Bombas[i].estado = 0
                         if OMonstrao.nivel < 5 then
                             if OMonstrao.nivel == 0 then
                                 OMonstrao.x = math.random(-500,500) + Mm.x
