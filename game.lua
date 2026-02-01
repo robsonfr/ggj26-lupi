@@ -258,6 +258,7 @@ function gameplay()
                     Bombas[i].estado = 2
                 end
             end
+        end
         ui.spr(Sprites["nave0" .. Direcao], 232, 127)
     else
         ContadorGameOver = ContadorGameOver - 1
@@ -410,7 +411,7 @@ function gameplay()
             end
         end
     end
-end
+
     --ui.spr(Sprites.mask02, 300, 80)
     huddraw()
 end
