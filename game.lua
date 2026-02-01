@@ -35,7 +35,6 @@ end
 function reset()
     MaximoTiros = 15
     CadenciaTiros = 20
-    NumAsteriodes = 100
     Step = 1
     Substep = 0
     Direcao = 1
@@ -45,7 +44,6 @@ function reset()
     VelocidadeTiro = 4
     Score = 0
     EstadoGlobal = 2
-    NumInimigos = 5
     TempoGameOver=120
     ContadorGameOver = TempoGameOver
     PosicaoTitulo = 270
