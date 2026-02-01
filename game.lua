@@ -93,7 +93,7 @@ function abertura()
         ui.print(" ----- MONSTRAO MASCARADO --------", 40, 220, 3)
         ui.print("PRESSIONE [A] PARA INICIAR!!", 40, 240, CorTextoAbertura)
     end
-    if ui.btnp(BTN_F) then
+    if ui.btnp(BTN_G) then
         EstadoGlobal = 1
     end
 end
