@@ -529,7 +529,7 @@ function gameplay()
                         end
                     end
                 end
-                if not bb:natela() then
+                if not bb:natela(Mm) then
                     Bombas[i].estado = 0
                 end
             end

@@ -57,6 +57,9 @@ Bomba = {
                 end
             end
         end
+    end,
+    natela = function(self, m)
+        return m:paralocal(self.x, self.y).natela
     end
 }
 
