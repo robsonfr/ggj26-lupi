@@ -224,7 +224,7 @@ function creditos()
     ui.print("BRUNO E TODO O PESSOAL DO GGJ 2026 PUCPR", 10, y+82,3)
     ui.print("OBRIGADO POR JOGAR!!", 190, y+114,3)
 
-    if y=79 then
+    if y==79 then
         ui.print("PRESSIONE [A] PARA JOGAR!", 170, 220, 3)
     end
 
