@@ -1,4 +1,5 @@
 require "globais"
+require "sprites"
 
 AnimacaoRosto = 0
 FrameRosto = 1
