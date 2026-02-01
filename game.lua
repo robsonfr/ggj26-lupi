@@ -60,6 +60,9 @@ function update()
     ui.cls(0)
     ui.clip(0,0,480,270)
     ui.camera()
+    for i = 1, #Palette do
+        ui.palset(i-1, Palette[i])
+    end
     if EstadoGlobal == 1 then
         gameplay()
     elseif EstadoGlobal == 2 then
@@ -72,98 +75,116 @@ function update()
 
 end
 
+function abertura()
+
+end
+
+function gameover()
+
+end
+
+function creditos()
+
+end
+
 function gameplay()
     local ajuste
     ajuste = 0
     DirX = 0
     DirY = 0
 
-    if ui.btn(LEFT) then
-        DirX = -1
-        ajuste = 1
-    end
-    if ui.btn(RIGHT) then
-        DirX = 1
-        ajuste = 1
-    end
-    if ui.btn(UP) then
-        DirY = -1
-        ajuste = 1
-    end
-    if ui.btn(DOWN) then
-        DirY = 1
-        ajuste = 1
-    end
+    if ContadorGameOver == 180 then
+        if ui.btn(LEFT) then
+            DirX = -1
+            ajuste = 1
+        end
+        if ui.btn(RIGHT) then
+            DirX = 1
+            ajuste = 1
+        end
+        if ui.btn(UP) then
+            DirY = -1
+            ajuste = 1
+        end
+        if ui.btn(DOWN) then
+            DirY = 1
+            ajuste = 1
+        end
 
-    if DirX == 0 and DirY ~= 0 then
-        if DirY == -1 then
-            Direcao = 1
-        elseif DirY == 1 then
-            Direcao = 3
+        if DirX == 0 and DirY ~= 0 then
+            if DirY == -1 then
+                Direcao = 1
+            elseif DirY == 1 then
+                Direcao = 3
+            end
+        elseif DirY == 0 and DirX ~= 0 then
+            if DirX == 1 then
+                Direcao = 2
+            elseif DirX == -1 then
+                Direcao = 4
+            end
+        else
+            if DirX == 1 and DirY == -1 then
+                Direcao = 5
+            elseif DirX == 1 and DirY == 1 then
+                Direcao = 6
+            elseif DirX == -1 and DirY == 1 then
+                Direcao = 7
+            elseif DirX == -1 and DirY == -1 then
+                Direcao = 8
+            end
         end
-    elseif DirY == 0 and DirX ~= 0 then
-        if DirX == 1 then
-            Direcao = 2
-        elseif DirX == -1 then
-            Direcao = 4
-        end
-    else
-        if DirX == 1 and DirY == -1 then
-            Direcao = 5
-        elseif DirX == 1 and DirY == 1 then
-            Direcao = 6
-        elseif DirX == -1 and DirY == 1 then
-            Direcao = 7
-        elseif DirX == -1 and DirY == -1 then
-            Direcao = 8
-        end
-    end
 
-    if ajuste == 1 then
-        Camera(Direcao)
-        Substep = Substep + 1
-        if Substep >= 10 then
-            Step = Step + 1
+        if ajuste == 1 then
+            Camera(Direcao)
+            Substep = Substep + 1
+            if Substep >= 10 then
+                Step = Step + 1
+                Substep = 0
+            end
+        else
             Substep = 0
+            Step = 1
         end
-    else
-        Substep = 0
-        Step = 1
-    end
 
-    for i = 1, #Palette do
-        ui.palset(i-1, Palette[i])
-    end
 
-    if ui.btnp(BTN_X) then
-        Mm:zero()
-    end
+    --    if ui.btnp(BTN_X) then
+    --       Mm:zero()
+    --  end
 
-    local k = 0
-    if ui.btn(BTN_Z) then
-        if TempoTiro == 0 then
-            TempoTiro = Tempo - (CadenciaTiros * 2)
-        end
-        if Tempo - TempoTiro >= CadenciaTiros then
-            TempoTiro = Tempo
-            k = k + 1
-            while k<= #Tiros do
-                if not Tiros[k]:natela(Mm) then
-                    break
-                end
+        local k = 0
+        if ui.btn(BTN_Z) then
+            if TempoTiro == 0 then
+                TempoTiro = Tempo - (CadenciaTiros * 2)
+            end
+            if Tempo - TempoTiro >= CadenciaTiros then
+                TempoTiro = Tempo
                 k = k + 1
-            end
-            if k<= #Tiros then
-                Tiros[k].x = Mm.x + Direcoes[Direcao].posTiro.x
-                Tiros[k].y = Mm.y + Direcoes[Direcao].posTiro.y
-                Tiros[k].direcao = Direcao
+                while k<= #Tiros do
+                    if not Tiros[k]:natela(Mm) then
+                        break
+                    end
+                    k = k + 1
+                end
+                if k<= #Tiros then
+                    Tiros[k].x = Mm.x + Direcoes[Direcao].posTiro.x
+                    Tiros[k].y = Mm.y + Direcoes[Direcao].posTiro.y
+                    Tiros[k].direcao = Direcao
+                end
             end
         end
+        ui.spr(Sprites["nave0" .. Direcao], 232, 127)
+    else
+        ContadorGameOver = ContadorGameOver - 1
+        if ContadorGameOver == 0 then
+            ContadorGameOver = 180
+            EstadoGlobal = 3
+            return
+        else
+            ui.print("GAME OVER!!", 200, 180, 2)
+        end
     end
-
     
-    
-    ui.spr(Sprites["nave0" .. Direcao], 232, 127)
 
     for i = 1, #Asteroides do
         local a
@@ -235,7 +256,7 @@ function gameplay()
         local inm = Inimigos[i]
         inm:logic(Mm)
         if math.abs(inm.x + 8 - Mm.x) < 8 and math.abs(inm.y + 8 - Mm.y) < 8 then
-            ui.print("GAME OVER!!",200,100,2)
+            ContadorGameOver = 179          
         end
         inm:draw(Mm)
     end

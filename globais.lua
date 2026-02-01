@@ -27,3 +27,4 @@ VelocidadeTiro = 4
 Score = 0
 EstadoGlobal = 1
 NumInimigos = 10
+ContadorGameOver = 180
