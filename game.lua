@@ -234,6 +234,9 @@ function gameplay()
     for i=1, #Inimigos do
         local inm = Inimigos[i]
         inm:logic(Mm)
+        if math.abs(inm.x + 8 - Mm.x) < 8 and math.abs(inm.y + 8 - Mm.y) < 8 then
+            ui.print("GAME OVER!!",200,100,2)
+        end
         inm:draw(Mm)
     end
     huddraw()
