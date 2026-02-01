@@ -134,6 +134,8 @@ Notas[4] = {i=59, n=75, t=30 }
 Notas[5] = {i=59, n=100, t=30 }
 Notas[6] = {i=59, n=50, t=30 }
 
+Instrumento = 0
+Nota = 1
 
 function abertura()
     if TmpNota == 0 then
@@ -144,14 +146,33 @@ function abertura()
         else
             local nota = Notas[NotaAtual]
             if nota.i >=0 then
-                sfx.fx(nota.i, nota.n)
+                -- sfx.fx(nota.i, nota.n)
             end
             TmpNota = nota.t
         end
     else
         TmpNota = TmpNota - 1
     end
+    if ui.btn(UP) and Instrumento > 0 then
+        Instrumento = Instrumento - 1
+    end
 
+    if ui.btn(DOWN) and Instrumento < 66 then
+        Instrumento = Instrumento + 1
+    end
+
+    if ui.btn(LEFT) and Nota > 0 then
+        Nota = Nota - 1
+    end
+
+    if ui.btn(RIGHT) and Nota < 240 then
+        Nota = Nota + 1
+    end
+    if ui.btnp(BTN_Z) then
+        sfx.fx(Instrumento, Nota)
+    end
+
+    ui.print("I=" .. Instrumento .. " N=" .. Nota, 240,20, 2)
     
     ui.spr(Sprites.mask02,0,PosicaoTitulo)
     
