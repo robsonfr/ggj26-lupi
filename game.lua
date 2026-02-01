@@ -127,9 +127,9 @@ end
 TmpNota = 0
 Notas = {}
 NotaAtual = 0
-Notas[1] = {i=26, n=10, t=2 }
-Notas[2] = {i=26, n=14, t=2 }
-Notas[3] = {i=26, n=17, t=2 }
+Notas[1] = {i=26, n=10, t=30 }
+Notas[2] = {i=26, n=14, t=30 }
+Notas[3] = {i=26, n=17, t=30 }
 Instrumento = 0
 Nota = 1
 
