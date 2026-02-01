@@ -7,7 +7,7 @@ Estrela = {
         local l
         l = m:paralocal(self.x, self.y)
         if l.natela then
-            ui.line(self.x, self.y, self.x, self.y, 3)
+            ui.line(l.x, l.y, l.x, l.y, 3)
         else
             self.x = math.random(-240, 240) + m.x
             self.y = math.random(-135, 135) + m.y
