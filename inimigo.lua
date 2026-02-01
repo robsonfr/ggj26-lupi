@@ -32,8 +32,8 @@ Inimigo = {
         if m.y > self.y then
             self.dirY = 1
         end
-        self.x = self.x + self.dirX * math.random(-1,self.vel)
-        self.y = self.y + self.dirY * math.random(-1,self.vel)
+        self.x = self.x + self.dirX * self.vel
+        self.y = self.y + self.dirY * self.vel
 
 
     end
