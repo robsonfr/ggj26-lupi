@@ -30,6 +30,6 @@ EstadoGlobal = 2
 NumInimigos = 5
 TempoGameOver=120
 ContadorGameOver = TempoGameOver
-PosicaoTitulo = 540
+PosicaoTitulo = 270
 AberturaMensagem = 30
 CorTextoAbertura = 3
