@@ -63,6 +63,7 @@ function update()
     for i = 1, #Palette do
         ui.palset(i-1, Palette[i])
     end
+    ui.print("EstadoGlobal=" .. EstadoGlobal, 400,240, 2)
     if EstadoGlobal == 1 then
         gameplay()
     elseif EstadoGlobal == 2 then
