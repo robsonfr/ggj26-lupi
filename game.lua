@@ -529,6 +529,9 @@ function gameplay()
                         end
                     end
                 end
+                if not bb:natela() then
+                    Bombas[i].estado = 0
+                end
             end
         end
     end
