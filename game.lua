@@ -257,7 +257,9 @@ function gameplay()
         local inm = Inimigos[i]
         inm:logic(Mm)
         if math.abs(inm.x + 8 - Mm.x) < 8 and math.abs(inm.y + 8 - Mm.y) < 8 then
-            ContadorGameOver = 179          
+            if ContadorGameOver == 180 then
+                ContadorGameOver = 179
+            end
         end
         inm:draw(Mm)
     end
