@@ -134,7 +134,7 @@ Notas[4] = {i=-1, n=25, t=30 }
 Notas[5] = {i=59, n=75, t=30 }
 Notas[6] = {i=59, n=100, t=30 }
 Notas[7] = {i=59, n=50, t=30 }
-Notas[4] = {i=-1, n=25, t=30 }
+Notas[8] = {i=-1, n=25, t=30 }
 
 function abertura()
     if TmpNota == 0 then
