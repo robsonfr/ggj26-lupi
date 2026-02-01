@@ -61,12 +61,13 @@ function reset()
         Asteroides[i].estado = math.random(1,4)
     end
 
-    for i = 21, NumAsteriodes do
-        Asteroides[i].x = math.random(-2000,2000)
-        Asteroides[i].y = math.random(-1500,1500)
-        Asteroides[i].estado = math.random(1,4)
+    if NumAsteriodes > 20 then
+        for i = 21, NumAsteriodes do
+            Asteroides[i].x = math.random(-2000,2000)
+            Asteroides[i].y = math.random(-1500,1500)
+            Asteroides[i].estado = math.random(1,4)
+        end
     end
-
 
     for i=1, MaximoTiros do
         Tiros[i].x = -10000
