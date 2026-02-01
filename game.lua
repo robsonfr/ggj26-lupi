@@ -53,6 +53,7 @@ function reset()
     CorTextoAbertura = 3
     NivelMonstrao = 0
     Bombas = {}
+    
     for i = 1, 20 do
         
         Asteroides[i].x = math.random(-400,400)
