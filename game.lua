@@ -78,6 +78,7 @@ function reset()
     end
     OMonstrao.nivel = 0
     DestruiuMonstrao = false
+    Mm:zero()
 end
 
 reset()
