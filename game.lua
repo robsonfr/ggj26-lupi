@@ -139,7 +139,7 @@ function abertura()
             TmpNota = 30
         else
             local nota = Notas[NotaAtual]
-            ui.sfx(nota.i, nota.n)
+            sfx.fx(nota.i, nota.n)
             TmpNota = nota.t
         end
     else
