@@ -10,8 +10,8 @@ Inimigo = {
     dirY = 0,
     pegouMinerio = false,
     draw = function(self, m)
-        self.x = self.x + dirX * VelocidadeInimigo
-        self.y = self.y + dirY * VelocidadeInimigo
+        self.x = self.x + self.dirX * VelocidadeInimigo
+        self.y = self.y + self.dirY * VelocidadeInimigo
         local l = m:paralocal(self.x, self.y)
         if l.natela then
             ui.spr(Sprites.mask01, l.x, l.y)
