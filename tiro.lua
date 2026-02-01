@@ -15,8 +15,8 @@ Tiro = {
         local s
         off_ = Direcoes[self.direcao]
         s = m:paralocal(self.x, self.y)
-        self.x = self.x + off_.x
-        self.y = self.y + off_.y
+        self.x = self.x + off_.x * VelocidadeTiro
+        self.y = self.y + off_.y * VelocidadeTiro
         l = m:paralocal(self.x, self.y)
         if l.natela then
             ui.line(s.x,s.y,l.x,l.y,2)
