@@ -32,7 +32,7 @@ Monstrao = {
         if self.nivel > 0 and math.random(1,100) < 900 then
             local v
             if self.nivel < 5 then
-                v = 6-self.nivel
+                v = 1
             else
                 v = 2
             end
