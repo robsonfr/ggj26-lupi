@@ -336,7 +336,7 @@ function gameplay()
             local atire
             atire = true
             for i = 1,#Bombas do
-                if Bombas[i].estado == 2 and Bombas[i]:natela() then
+                if Bombas[i].estado == 2 and Bombas[i]:natela(Mm) then
                     atire = false
                     break
                 end
