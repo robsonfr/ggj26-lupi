@@ -284,7 +284,7 @@ function gameplay()
             return
         else
             if not DestruiuMonstrao then
-                sfx.fx(26,math.random(1,100))
+                sfx.fx(26,math.random(1,10))
                 if ContadorGameOver >=60 then
                     Direcao = Direcao + 1
                     if Direcao >= 9 then
