@@ -16,6 +16,9 @@ Inimigo = {
             ui.spr(Sprites.mask01, l.x, l.y)
         end
     end,
+    natela = function(self, m)
+        return m:paralocal(self.x, self.y).natela
+    end,
     logic = function(self, m)
         -- Verificar se ha minerio perto
         -- Verificar se esta perto da nave

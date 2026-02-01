@@ -176,6 +176,13 @@ function gameplay()
         a:draw(Mm)
     end
 
+    for i=1, #Inimigos do
+        local inm = Inimigos[i]
+        inm:logic(Mm)
+        inm:draw(Mm)
+    end
+
+
     for i = 1, #Tiros do
         local tt
         tt = Tiros[i]
@@ -199,6 +206,22 @@ function gameplay()
                             if b.estado == 5 then
                                 NumBombas = NumBombas + 1
                             end
+                            tt.x = -10000
+                            tt.y = -10000
+                            break
+                        end
+                    end
+                end
+                for j=1, #Inimigos do
+                    local c
+                    c=Inimigos[j]
+                    if c:natela(Mm) then
+                        if math.abs(c.x + 8 - tt.x) < 8 and math.abs(c.y + 8 - tt.y) < 8 then
+                            Inimigos[j].x = math.random(-400,400)
+                            Inimigos[j].y = math.random(-400,400)
+                            Inimigos[j].vel = math.random(1,3)
+                            Score = Score + 100
+                            sfx.fx(16, 50)
                             tt.x = -10000
                             tt.y = -10000
                             break
