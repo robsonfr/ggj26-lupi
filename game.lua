@@ -7,10 +7,13 @@ require "tiro"
 require "hud"
 require "inimigo"
 require "bomba"
+require "Monstrao"
 
 -- Inicializacoes de globais
 
 Mm = Mundo:new()
+OMonstrao = Monstrao:new()
+
 for i = 1, 20 do
     Asteroides[i] = Aster:new()
     Asteroides[i].x = math.random(-400,400)
@@ -99,7 +102,9 @@ function abertura()
 end
 
 function gameover()
-
+    if ui.btnp(BTN_G) then
+        EstadoGlobal = 2
+    end
 end
 
 function creditos()
@@ -301,8 +306,8 @@ function gameplay()
                     local inm = Inimigos[j]
                     if math.abs(inm.x - bb.x) <= 2 and math.abs(inm.y - bb.y) <= 2 then
                         bb.estado = 0
-                        if NivelMonstrao < 5 then
-                            NivelMonstrao = NivelMonstrao + 1
+                        if OMonstrao.nivel < 5 then
+                            OMonstrao.nivel = OMonstrao.nivel + 1
                         end
                     end
                 end
