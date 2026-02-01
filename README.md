@@ -33,5 +33,6 @@ O masking também acaba ocorrendo em pessoas neurotípicas, especialmente mulher
 
 A ideia é fazer um jogo do tipo Adventure que se passa em um escritório e seu personagem precisa lidar com as atividades do trabalho e interações com as(os) colegas, mostrando o impacto do masking na stamina mental do jogador, que pode ser representada por uma barra. Podem ser colocados no cenário do jogo locais para despressurização, bem como pessoas para dar suporte ao jogador, e no cenário objetos relacionados com masking.
 
+---
 
-## Ideia 3: 
+Embora a ideia 2 seja bastante interessante, achei melhor desenvolver a ideia 1.
