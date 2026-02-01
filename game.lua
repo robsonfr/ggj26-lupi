@@ -284,11 +284,20 @@ function gameplay()
             return
         else
             if not DestruiuMonstrao then
-                Direcao = Direcao + 1
-                if Direcao >= 9 then
-                    Direcao = 1
+                if ContadorGameOver >=60 then
+                    
+                    Direcao = Direcao + 1
+                    if Direcao >= 9 then
+                        Direcao = 1
+                    end
+                    ui.spr(Sprites["nave0" .. Direcao], 232, 127)
+                else
+                    if ContadorGameOver > 30 then
+                        ui.circfill(240,135,60-ContadorGameOver,8)
+                    else
+                        ui.circfill(240,135,30-ContadorGameOver,0)
+                    end
                 end
-                ui.spr(Sprites["nave0" .. Direcao], 232, 127)
             end
             ui.print("GAME OVER!!", 200, 180, 2)
         end
