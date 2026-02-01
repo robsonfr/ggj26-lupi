@@ -11,11 +11,11 @@ Monstrao = {
         local l
         l = m:paralocal(self.x, self.y)
         if self.nivel > 0 and l.natela then
-            ui.spr(Sprites["mask020" .. nivel], l.x, l.y)
+            ui.spr(Sprites["mask020" .. self.nivel], l.x, l.y)
         end
     end,
     logic = function(self, m)
-        if self.nivel >= 3 then
+        if self.nivel >= 2 then
             if m.x > self.x then
                 self.dirX = 1
             end
@@ -29,7 +29,7 @@ Monstrao = {
                 self.dirY = -1
             end
         end
-        if self.nivel > 0 and math.random(1,100) < 33 then
+        if self.nivel > 0 and math.random(1,100) < 900 then
             self.x = self.x + self.dirX
             self.y = self.y + self.dirY
         end
