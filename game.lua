@@ -5,21 +5,35 @@ require "mundo"
 require "globais"
 require "tiro"
 require "hud"
+require "inimigo"
 
 -- Inicializacoes de globais
-for i = 1, NumAsteriodes do
+
+Mm = Mundo:new()
+for i = 1, 20 do
     Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-2000,2000)
-    Asteroides[i].y = math.random(-1720,1720)
+    Asteroides[i].x = math.random(-400,400)
+    Asteroides[i].y = math.random(-300,300)
     Asteroides[i].estado = math.random(1,4)
 end
 
-Mm = Mundo:new()
+for i = 21, NumAsteriodes do
+    Asteroides[i] = Aster:new()
+    Asteroides[i].x = math.random(-2000,2000)
+    Asteroides[i].y = math.random(-1500,1500)
+    Asteroides[i].estado = math.random(1,4)
+end
 
 for i=1, MaximoTiros do
     Tiros[i] = Tiro:new()
     Tiros[i].x = -10000
     Tiros[i].y = -10000
+end
+
+for i=1, NumInimigos do
+    Inimigos[i] = Inimigo:new()
+    Inimigos[i].x = math.random(-400,400)
+    Inimigos[i].y = math.random(-400,400)
 end
 
 
@@ -160,6 +174,7 @@ function gameplay()
         end
         a:draw(Mm)
     end
+
     for i = 1, #Tiros do
         local tt
         tt = Tiros[i]
@@ -191,6 +206,11 @@ function gameplay()
                 end
             end
         end
+    end
+    for i=1, #Inimigos do
+        local inm = Inimigos[i]
+        inm:logic(Mm)
+        inm:draw(Mm)
     end
     huddraw()
 end
