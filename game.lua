@@ -283,6 +283,13 @@ function gameplay()
             EstadoGlobal = 3
             return
         else
+            if not DestruiuMonstrao then
+                Direcao = Direcao + 1
+                if Direcao >= 9 then
+                    Direcao = 1
+                end
+                ui.spr(Sprites["nave0" .. Direcao], 232, 127)
+            end
             ui.print("GAME OVER!!", 200, 180, 2)
         end
     end
