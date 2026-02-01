@@ -21,4 +21,5 @@ function huddraw()
     nmb = "Bombas." .. string.format("%7d", NumBombas)
     ui.print(sc, 60, 235, 2)
     ui.print(nmb, 60, 247, 2)
+    ui.print("Nivel Monstrao=" .. NivelMonstrao, 320, 235, 2)
 end
