@@ -42,6 +42,9 @@ end
 
 function update()
     Tempo = Tempo + 1
+    ui.cls(0)
+    ui.clip(0,0,480,270)
+    ui.camera()
     if EstadoGlobal == 1 then
         gameplay()
     elseif EstadoGlobal == 2 then
@@ -143,10 +146,8 @@ function gameplay()
         end
     end
 
-    ui.cls(0)
-    ui.clip(0,0,480,270)
-    ui.camera()
-    ui.print("Monstrao Mascarado", 200, 260, 2)
+    
+    
     ui.spr(Sprites["nave0" .. Direcao], 232, 127)
 
     for i = 1, #Asteroides do
@@ -176,9 +177,10 @@ function gameplay()
                     lby = (b:limiteAtual().y // 2)
                     if b.estado <=4 and b:natela(Mm) and math.abs(b.x + lbx - tt.x) < lbx and math.abs(b.y + lby - tt.y) < lby then
                         b:recebeutiro()
+                        Score = Score + 50
                         sfx.fx(16, 25)
                         if b.estado == 5 then
-                            Bombas = Bombas + 1
+                            NumBombas = NumBombas + 1
                         end
                         tt.x = -10000
                         tt.y = -10000
