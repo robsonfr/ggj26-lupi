@@ -24,17 +24,22 @@ Bomba = {
     end,
     logic = function(self)
         if self.estado == 2 then
-            if OMonstrao.x > self.x then
-                self.dirX = 1
-            end
-            if OMonstrao.x < self.x then
-                self.dirX = -1
-            end
-            if OMonstrao.y > self.y then
-                self.dirY = 1
-            end
-            if OMonstrao.x < self.x then
-                self.dirY = -1
+            if OMonstrao.nivel  > 0 then
+                if OMonstrao.x > self.x then
+                    self.dirX = 1
+                end
+                if OMonstrao.x < self.x then
+                    self.dirX = -1
+                end
+                if OMonstrao.y > self.y then
+                    self.dirY = 1
+                end
+                if OMonstrao.x < self.x then
+                    self.dirY = -1
+                end
+            else
+                self.dirX = Direcoes[Direcao].x
+                self.dirY = Direcoes[Direcao].y
             end
             for i = 1,#Inimigos do
                 local inm
