@@ -12,10 +12,12 @@ Direcoes = {
 
 Asteroides = {}
 Bombas = {}
-Mm = {}
-Tiros = {}
+Estrelas = {}
 Inimigos = {}
+Mm = {}
 OMonstrao = {}
+Tiros = {}
+
 MaximoTiros = 15
 CadenciaTiros = 20
 NumAsteriodes = 100

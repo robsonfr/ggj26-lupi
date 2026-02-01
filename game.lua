@@ -8,11 +8,29 @@ require "hud"
 require "inimigo"
 require "bomba"
 require "monstrao"
+require "estrela"
 
 -- Inicializacoes de globais
 
 Mm = Mundo:new()
 OMonstrao = Monstrao:new()
+
+
+for i=1, 50 do
+    Estrelas[i] = Estrela:new()
+end
+
+for i=1, NumAsteriodes do
+    Asteroides[i] = Aster:new()
+end
+
+for i=1, MaximoTiros do
+    Tiros[i] = Tiro:new()
+end
+
+for i=1, NumInimigos do
+    Inimigos[i] = Inimigo:new()
+end
 
 function reset()
     MaximoTiros = 15
@@ -35,27 +53,25 @@ function reset()
     CorTextoAbertura = 3
     NivelMonstrao = 0
     for i = 1, 20 do
-        Asteroides[i] = Aster:new()
+        
         Asteroides[i].x = math.random(-400,400)
         Asteroides[i].y = math.random(-300,300)
         Asteroides[i].estado = math.random(1,4)
     end
 
     for i = 21, NumAsteriodes do
-        Asteroides[i] = Aster:new()
         Asteroides[i].x = math.random(-2000,2000)
         Asteroides[i].y = math.random(-1500,1500)
         Asteroides[i].estado = math.random(1,4)
     end
 
+
     for i=1, MaximoTiros do
-        Tiros[i] = Tiro:new()
         Tiros[i].x = -10000
         Tiros[i].y = -10000
     end
 
     for i=1, NumInimigos do
-        Inimigos[i] = Inimigo:new()
         Inimigos[i].x = math.random(-400,400)
         Inimigos[i].y = math.random(-400,400)
         Inimigos[i].vel = math.random(1,2)
