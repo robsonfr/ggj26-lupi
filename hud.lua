@@ -1,4 +1,4 @@
-require "globals"
+require "globais"
 
 AnimacaoRosto = 0
 FrameRosto = 1
