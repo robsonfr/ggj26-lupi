@@ -152,27 +152,7 @@ function abertura()
     else
         TmpNota = TmpNota - 1
     end
-    if ui.btnp(UP) and Instrumento > 0 then
-        Instrumento = Instrumento - 1
-    end
-
-    if ui.btnp(DOWN) and Instrumento < 66 then
-        Instrumento = Instrumento + 1
-    end
-
-    if ui.btnp(LEFT) and Nota > 0 then
-        Nota = Nota - 1
-    end
-
-    if ui.btnp(RIGHT) and Nota < 240 then
-        Nota = Nota + 1
-    end
-    if ui.btnp(BTN_Z) then
-        sfx.fx(Instrumento, Nota)
-    end
-
-    ui.print("I=" .. Instrumento .. " N=" .. Nota, 240,20, 2)
-    
+   
     ui.spr(Sprites.mask02,0,PosicaoTitulo)
     
     if PosicaoTitulo > 0 then
