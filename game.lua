@@ -94,7 +94,7 @@ function gameplay()
     DirX = 0
     DirY = 0
 
-    if ContadorGameOver == 180 then
+    if ContadorGameOver == TempoGameOver then
         if ui.btn(LEFT) then
             DirX = -1
             ajuste = 1
@@ -178,11 +178,11 @@ function gameplay()
     else
         ContadorGameOver = ContadorGameOver - 1
         if ContadorGameOver == 0 then
-            ContadorGameOver = 180
+            ContadorGameOver = TempoGameOver
             EstadoGlobal = 3
             return
         else
-            ui.print("GAME OVER!! "..ContadorGameOver , 200, 180, 2)
+            ui.print("GAME OVER!!", 200, 180, 2)
         end
     end
     
@@ -257,8 +257,8 @@ function gameplay()
         local inm = Inimigos[i]
         inm:logic(Mm)
         if math.abs(inm.x + 8 - Mm.x) < 8 and math.abs(inm.y + 8 - Mm.y) < 8 then
-            if ContadorGameOver == 180 then
-                ContadorGameOver = 179
+            if ContadorGameOver == TempoGameOver then
+                ContadorGameOver = TempoGameOver-1
             end
         end
         inm:draw(Mm)
