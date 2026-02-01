@@ -175,16 +175,18 @@ function gameplay()
                     b=Asteroides[j]
                     lbx = (b:limiteAtual().x // 2)
                     lby = (b:limiteAtual().y // 2)
-                    if b.estado <=4 and b:natela(Mm) and math.abs(b.x + lbx - tt.x) < lbx and math.abs(b.y + lby - tt.y) < lby then
-                        b:recebeutiro()
-                        Score = Score + 50
-                        sfx.fx(16, 25)
-                        if b.estado == 5 then
-                            NumBombas = NumBombas + 1
+                    if b:natela(Mm) then
+                        if b.estado <=4 and math.abs(b.x + lbx - tt.x) < lbx and math.abs(b.y + lby - tt.y) < lby then
+                            b:recebeutiro()
+                            Score = Score + 50
+                            sfx.fx(16, 25)
+                            if b.estado == 5 then
+                                NumBombas = NumBombas + 1
+                            end
+                            tt.x = -10000
+                            tt.y = -10000
+                            break
                         end
-                        tt.x = -10000
-                        tt.y = -10000
-                        break
                     end
                 end
             end
