@@ -173,8 +173,8 @@ function gameplay()
                     local lbx
                     local lby
                     b=Asteroides[j]
-                    lbx = (b:limiteAtual().x // 2)
-                    lby = (b:limiteAtual().y // 2)
+                    lbx = (b:limiteAtual().x / 2)
+                    lby = (b:limiteAtual().y / 2)
                     if b:natela(Mm) then
                         if b.estado <=4 and math.abs(b.x + lbx - tt.x) < lbx and math.abs(b.y + lby - tt.y) < lby then
                             b:recebeutiro()
