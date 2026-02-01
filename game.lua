@@ -255,13 +255,23 @@ function gameplay()
         end
 
         if ui.btn(BTN_G) and NumBombas > 0 then
-            NumBombas = NumBombas - 1
+            local atire
+            atire = true
             for i = 1,#Bombas do
-                if Bombas[i].estado == 0 then
-                    Bombas[i].x = Mm.x
-                    Bombas[i].y = Mm.y
-                    Bombas[i].estado = 2
+                if Bombas[i].estado == 2 then
+                    atire = false
                     break
+                end
+            end
+            if atire then
+                NumBombas = NumBombas - 1
+                for i = 1,#Bombas do
+                    if Bombas[i].estado == 0 then
+                        Bombas[i].x = Mm.x
+                        Bombas[i].y = Mm.y
+                        Bombas[i].estado = 2
+                        break
+                    end
                 end
             end
         end
