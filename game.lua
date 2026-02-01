@@ -9,8 +9,8 @@ require "hud"
 -- Inicializacoes de globais
 for i = 1, NumAsteriodes do
     Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-600,600)
-    Asteroides[i].y = math.random(-520,520)
+    Asteroides[i].x = math.random(-2000,2000)
+    Asteroides[i].y = math.random(-1720,1720)
     Asteroides[i].estado = math.random(1,4)
 end
 
