@@ -5,30 +5,6 @@ require "mundo"
 require "globais"
 require "tiro"
 
-Asteroides = {}
-MaximoTiros = 30
-
-for i = 1, 20 do
-    Asteroides[i] = Aster:new()
-    Asteroides[i].x = math.random(-400,400)
-    Asteroides[i].y = math.random(-320,320)
-    Asteroides[i].estado = math.random(1,4)
-end
-
-Mm = Mundo:new()
-
-Step = 1
-Substep = 0
-
-Direcao = 1
-Tiros = {}
-for i=1, MaximoTiros do
-    Tiros[i] = Tiro:new()
-    Tiros[i].x = -1000
-    Tiros[i].y = -1000
-end
-
-Tempo = 0
 
 function Camera(d)
     if d == 1 or d == 5 or d == 8 then
@@ -45,7 +21,6 @@ function Camera(d)
     end
 end
 
-TempoTiro = 0
 
 function update()
     local ajuste
@@ -56,22 +31,18 @@ function update()
     DirY = 0
     
     if ui.btn(LEFT) then
-        --Direcao = 4
         DirX = -1
         ajuste = 1
     end
     if ui.btn(RIGHT) then
-        -- Direcao = 2
         DirX = 1
         ajuste = 1
     end
     if ui.btn(UP) then
-        --Direcao = 1
         DirY = -1
         ajuste = 1
     end
     if ui.btn(DOWN) then
-        -- Direcao = 3
         DirY = 1
         ajuste = 1
     end
@@ -118,15 +89,14 @@ function update()
 
     if ui.btnp(BTN_X) then
         Mm:zero()
-        NumTiros = 0
     end
 
     local k = 0
     if ui.btn(BTN_Z) then
         if TempoTiro == 0 then
-            TempoTiro = Tempo - 20
+            TempoTiro = Tempo - (CadenciaTiros * 2) 
         end
-        if Tempo - TempoTiro >= 15 then
+        if Tempo - TempoTiro >= CadenciaTiros then
             TempoTiro = Tempo
             k = k + 1
             while k<= #Tiros do
@@ -169,9 +139,6 @@ function update()
         if tt and tt:natela(Mm) then
             tt:updatedraw(Mm)
         end
-        --if tt and not tt:updatedraw(Mm) then
-        -- Tiros[i] = nil
-        --end 
     end
 
     ui.print("Tempo=" .. Tempo, 10, 10, 2)
@@ -184,6 +151,4 @@ function update()
     end
 
     
---    ui.spr(Sprites["mask01"], 160, 100)
---    ui.spr(Sprites["mask01"], 360, 100)
 end
