@@ -182,7 +182,7 @@ function gameplay()
             EstadoGlobal = 3
             return
         else
-            ui.print("GAME OVER!!", 200, 180, 2)
+            ui.print("GAME OVER!! "..ContadorGameOver , 200, 180, 2)
         end
     end
     
