@@ -369,8 +369,8 @@ function gameplay()
                         bb.estado = 0
                         if OMonstrao.nivel < 5 then
                             if OMonstrao.nivel == 0 then
-                                OMonstrao.x = math.random(-500,500)
-                                OMonstrao.y = math.random(-500,500)
+                                OMonstrao.x = math.random(-500,500) + Mm.x
+                                OMonstrao.y = math.random(-500,500) + Mm.y
                             end
                             OMonstrao.nivel = OMonstrao.nivel + 1
                         end
@@ -410,6 +410,7 @@ function gameplay()
             end
         end
     end
+end
     --ui.spr(Sprites.mask02, 300, 80)
     huddraw()
 end
