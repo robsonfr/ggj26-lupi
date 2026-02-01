@@ -1,3 +1,7 @@
+require "tiro"
+require "mundo"
+require "aster"
+
 Direcoes = {
     { x=0, y=-1, op=3, posTiro = {x=0,y=-1} },
     { x=1, y=0, op=4, posTiro = {x=1,y=0} },
