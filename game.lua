@@ -153,19 +153,19 @@ function abertura()
     else
         TmpNota = TmpNota - 1
     end
-    if ui.btn(UP) and Instrumento > 0 then
+    if ui.btnp(UP) and Instrumento > 0 then
         Instrumento = Instrumento - 1
     end
 
-    if ui.btn(DOWN) and Instrumento < 66 then
+    if ui.btnp(DOWN) and Instrumento < 66 then
         Instrumento = Instrumento + 1
     end
 
-    if ui.btn(LEFT) and Nota > 0 then
+    if ui.btnp(LEFT) and Nota > 0 then
         Nota = Nota - 1
     end
 
-    if ui.btn(RIGHT) and Nota < 240 then
+    if ui.btnp(RIGHT) and Nota < 240 then
         Nota = Nota + 1
     end
     if ui.btnp(BTN_Z) then
