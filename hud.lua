@@ -18,7 +18,7 @@ function huddraw()
     end
     ui.spr(Sprites["pilot0" .. FrameRosto], 10, 232)
     sc  = string.format("Score  %07d", Score)
-    nmb = string.format("Bombas %7d", NumBombas)
+    nmb = string.format("Bombas %9d", NumBombas)
     ui.print(sc, 60, 235, 2)
     ui.print(nmb, 60, 247, 2)
 end
