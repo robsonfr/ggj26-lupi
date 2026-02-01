@@ -23,3 +23,5 @@ Tempo = 0
 TempoTiro = 0
 Bombas = 0
 VelocidadeTiro = 2
+Score = 0
+EstadoGlobal = 1

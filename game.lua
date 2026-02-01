@@ -4,6 +4,7 @@ require "aster"
 require "mundo"
 require "globais"
 require "tiro"
+require "hud"
 
 -- Inicializacoes de globais
 for i = 1, NumAsteriodes do
@@ -40,9 +41,21 @@ end
 
 
 function update()
-    local ajuste
-
     Tempo = Tempo + 1
+    if EstadoGlobal == 1 then
+        gameplay()
+    elseif EstadoGlobal == 2 then
+        abertura()
+    elseif EstadoGlobal == 3 then
+        gameover()
+    elseif EstadoGlobal == 4 then
+        creditos()
+    end
+
+end
+
+function gameplay()
+    local ajuste
     ajuste = 0
     DirX = 0
     DirY = 0
@@ -175,5 +188,5 @@ function update()
             end
         end
     end
-
+    huddraw()
 end
