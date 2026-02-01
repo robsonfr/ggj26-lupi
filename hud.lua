@@ -20,5 +20,5 @@ function huddraw()
     sc  = string.format("Score  %07d", Score)
     nmb = string.format("Bombas %7d", NumBombas)
     ui.print(sc, 60, 235, 2)
-    ui.print(nmb, 60, 235, 2)
+    ui.print(nmb, 60, 247, 2)
 end
