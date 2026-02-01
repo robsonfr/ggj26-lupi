@@ -21,6 +21,9 @@ Aster = {
             end
         end
     end,
+    limiteAtual = function(self)
+        return self.limites[self.estado]
+    end,
     bateu = function(self, m)
         local l
         local limite
