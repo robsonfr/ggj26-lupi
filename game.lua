@@ -75,8 +75,8 @@ function reset()
         if Inimigos[i] == nil then
             Inimigos[i] = Inimigo:new()
         end
-        Inimigos[i].x = math.random(-400,400)
-        Inimigos[i].y = math.random(-400,400)
+        Inimigos[i].x = math.random(-40,40) * 10
+        Inimigos[i].y = math.random(-40,40) * 10
         Inimigos[i].vel = math.random(1,2)
     end
     OMonstrao.nivel = 0
@@ -368,6 +368,7 @@ function gameplay()
                     if Direcao >= 9 then
                         Direcao = 1
                     end
+                    ui.spr(Sprites["nave0" .. Direcao], 232, 127)
                 else
                     sfx.fx(26,math.random(1,10))
                     if ContadorGameOver > 30 then
@@ -376,8 +377,9 @@ function gameplay()
                         ui.circfill(240,135,30-ContadorGameOver,0)
                     end
                 end
+            else
+                ui.spr(Sprites["nave0" .. Direcao], 232, 127)
             end
-            ui.spr(Sprites["nave0" .. Direcao], 232, 127)
             ui.print("GAME OVER!!", 200, 180, 2)
         end
     end
@@ -448,8 +450,8 @@ function gameplay()
                     c=Inimigos[j]
                     if c:natela(Mm) then
                         if math.abs(c.x + 8 - tt.x) < 8 and math.abs(c.y + 8 - tt.y) < 8 then
-                            Inimigos[j].x = math.random(-400,400)
-                            Inimigos[j].y = math.random(-400,400)
+                            Inimigos[j].x = (math.random(-40,40) * 10) + Mm.x
+                            Inimigos[j].y = (math.random(-40,40) * 10) + Mm.y
                             Inimigos[j].vel = math.random(1,2)
                             Score = Score + 100
                             sfx.fx(16, 50)
