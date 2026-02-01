@@ -12,7 +12,7 @@ Direcoes = {
 
 Asteroides = {}
 MaximoTiros = 15
-CadenciaTiros = 10
+CadenciaTiros = 20
 NumAsteriodes = 50
 Mm = {}
 Step = 1
