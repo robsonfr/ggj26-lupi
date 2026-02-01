@@ -391,7 +391,7 @@ function gameplay()
             Substep = 0
             Camera(Direcoes[Direcao].op)
         end
-        if a.vida < 30 then
+        if a.vida < 1500 then
             Asteroides[i].vida = Asteroides[i].vida + 1
         else
             Asteroides[i].vida = 0
