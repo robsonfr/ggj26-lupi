@@ -408,6 +408,7 @@ function gameplay()
                     end
                 end
             end
+        end
     end
     --ui.spr(Sprites.mask02, 300, 80)
     huddraw()
