@@ -5,6 +5,7 @@ AnimacaoRosto = 0
 FrameRosto = 1
 
 function huddraw()
+    local sc
     ui.rectfill(0,234,480,270,0)
     ui.rect(0,234,480,270,2)
     if AnimacaoRosto == 0 then
@@ -14,5 +15,8 @@ function huddraw()
         FrameRosto = 3 - FrameRosto
         AnimacaoRosto = Tempo
     end
-    ui.spr(Sprites["pilot0" .. FrameRosto], 10, 237)
+    ui.spr(Sprites["pilot0" .. FrameRosto], 10, 232)
+    sc = string.format("%07d", Score)
+
+    ui.print("Score " .. sc, 60, 235, 2)
 end
