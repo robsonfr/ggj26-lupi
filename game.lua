@@ -218,12 +218,19 @@ function creditos()
         y=79
     end
     ui.print("MONSTRAO MASCARADO - LUPI EDITION", 10, y,3)
-    ui.print("CRIADO POR ROBSON DOS SANTOS", 10, y+20,3)
+    ui.print("CRIADO POR ROBSON DOS SANTOS", 10, y+16,3)
     ui.print("AGRADECIMENTOS", 10, y+50,3)
     ui.print("LINO E CAROL DO PROJETO LUPI", 10, y+66,3)
     ui.print("BRUNO E TODO O PESSOAL DO GGJ 2026 PUCPR", 10, y+82,3)
     ui.print("OBRIGADO POR JOGAR!!", 190, y+114,3)
 
+    if y=79 then
+        ui.print("PRESSIONE [A] PARA JOGAR!", 170, 220, 3)
+    end
+
+    if ui.btnp(BTN_G) then
+        EstadoGlobal = 1
+    end
 
 end
 
