@@ -127,13 +127,9 @@ end
 TmpNota = 0
 Notas = {}
 NotaAtual = 0
-Notas[1] = {i=59, n=50, t=30 }
-Notas[2] = {i=59, n=100, t=30 }
-Notas[3] = {i=59, n=25, t=30 }
-Notas[4] = {i=59, n=75, t=30 }
-Notas[5] = {i=59, n=100, t=30 }
-Notas[6] = {i=59, n=50, t=30 }
-
+Notas[1] = {i=26, n=10, t=2 }
+Notas[2] = {i=26, n=14, t=2 }
+Notas[3] = {i=26, n=17, t=2 }
 Instrumento = 0
 Nota = 1
 
@@ -146,7 +142,7 @@ function abertura()
         else
             local nota = Notas[NotaAtual]
             if nota.i >=0 then
-                -- sfx.fx(nota.i, nota.n)
+                sfx.fx(nota.i, nota.n)
             end
             TmpNota = nota.t
         end
