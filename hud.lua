@@ -17,8 +17,8 @@ function huddraw()
         AnimacaoRosto = Tempo
     end
     ui.spr(Sprites["pilot0" .. FrameRosto], 10, 232)
-    sc  = "Score  " .. string.format("%07d", Score)
-    nmb = "Bombas " .. string.format("%7d", NumBombas)
+    sc  = "Score.." .. string.format("%07d", Score)
+    nmb = "Bombas." .. string.format("%7d", NumBombas)
     ui.print(sc, 60, 235, 2)
     ui.print(nmb, 60, 247, 2)
 end
