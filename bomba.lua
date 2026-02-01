@@ -1,12 +1,14 @@
 require "globais"
 
+TempoCorBomba = 15
+
 Bomba = {
     x = 0,
     y = 0,
     dirX = 0,
     dirY = 0,
     cor = 3,
-    tcor = 30,
+    tcor = TempoCorBomba,
     estado = 0,
     draw = function(self,m)
         local l
@@ -15,7 +17,7 @@ Bomba = {
             ui.rectfill(l.x-1,l.y-1,l.x+1,l.y+1,self.cor)
             self.tcor = self.tcor - 1
             if self.tcor == 0 then
-                self.tcor = 30
+                self.tcor = TempoCorBomba
                 self.cor = 7 - self.cor
             end
         end
