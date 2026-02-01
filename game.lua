@@ -34,6 +34,7 @@ for i=1, NumInimigos do
     Inimigos[i] = Inimigo:new()
     Inimigos[i].x = math.random(-400,400)
     Inimigos[i].y = math.random(-400,400)
+    Inimigos[i].vel = math.random(1,3)
 end
 
 
