@@ -34,4 +34,4 @@ ContadorGameOver = TempoGameOver
 PosicaoTitulo = 270
 AberturaMensagem = 30
 CorTextoAbertura = 3
-NivelMonstrao = 0
+DestruiuMonstrao = false
