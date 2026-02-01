@@ -78,7 +78,22 @@ function update()
 end
 
 function abertura()
-
+    ui.spr(Sprites.titulo,0,PosicaoTitulo)
+    if PosicaoTitulo then
+        PosicaoTitulo = PosicaoTitulo - 1
+    else
+        if AberturaMensagem then
+            AberturaMensagem = AberturaMensagem - 1
+        else
+            AberturaMensagem = 30
+            CorTextoAbertura = 3 - CorTextoAbertura
+        end
+        
+        ui.print("PRESSIONE [A] PARA INICIAR!!", 40, 240, CorTextoAbertura)
+    end
+    if ui.btnp(BTN_Z) then
+        EstadoGlobal = 1
+    end
 end
 
 function gameover()
@@ -277,6 +292,6 @@ function gameplay()
         bb:draw(Mm)
 
     end
-    ui.spr(Sprites.mask02, 300, 80)
+    --ui.spr(Sprites.mask02, 300, 80)
     huddraw()
 end
